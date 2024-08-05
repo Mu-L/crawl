@@ -669,6 +669,13 @@ bool melee_attack::handle_phase_hit()
     // Check for weapon brand & inflict that damage too
     apply_damage_brand();
 
+    if (weapon && testbits(weapon->flags, ISFLAG_CHAOTIC))
+    {
+        unwind_var<brand_type> save_brand(damage_brand);
+        damage_brand = SPWPN_CHAOS;
+        apply_damage_brand();
+    }
+
     // Apply flux form's sfx.
     if (attacker->is_player() && you.form == transformation::flux
         && defender->alive() && defender->is_monster())
@@ -3389,9 +3396,9 @@ void melee_attack::mons_apply_attack_flavour()
     {
         const int rff = defender->res_foul_flame();
         if (rff < 0)
-            special_damage = attk_damage * 0.75;
+            special_damage = attk_damage * 1.5;
         else if (rff < 3)
-            special_damage = attk_damage / ((rff + 1) * 2);
+            special_damage = attk_damage / (rff + 1);
 
         if (needs_message && special_damage)
         {

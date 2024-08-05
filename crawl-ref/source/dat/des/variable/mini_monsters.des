@@ -1390,6 +1390,29 @@ cpppppppppccccccccc
 ccccccccccc
 ENDMAP
 
+NAME:   tekkud_yamata_no_oroachi
+TAGS:   no_monster_gen
+DEPTH:  D:12-, !D:$, Lair, !Lair:$
+MONS:   eight-headed hydra, patrolling giant cockroach, plant
+ITEM:   long sword good_item / scimitar good_item w:6, human skeleton
+KFEAT:  C = cache of fruit
+SUBST:  ` = @'''', ' = x', " = x.
+NSUBST: . = 4:2 / *:.
+CLEAR:  '
+MAP
+     '   `
+  `''x'''x''
+ xx'xxx'xxx'
+ 'xxxCxxx'''
+''xxe...xxxx`
+'x'xd.1..xx'
+ 'xxx....3xx'
+  'x"x..33x3
+ `xxxx3x333
+  'x'xx3x3@
+     x3
+ENDMAP
+
 ###############################################################################
 #
 # <<3>> Humanoids
@@ -9030,9 +9053,9 @@ xxW....................Wxx
 ENDMAP
 
 NAME:   hellmonk_guarded_unrand_rift
-TAGS:   patrolling
+TAGS:   patrolling uniq_guarded_rift
 DEPTH:  D:13-, Depths
-WEIGHT: 3
+WEIGHT: 2
 ITEM:   rift no_pickup
 MONS:   arcanist, occultist, tentacled starspawn, starcursed mass
 KFEAT:  t = demonic_tree
@@ -9915,6 +9938,36 @@ MAP
   vv.d.vv
    vvvvv
 ENDMAP
+
+NAME:   orjb1_guarded_unrand_rift
+TAGS:   no_monster_gen no_trap_gen no_item_gen uniq_guarded_rift
+DEPTH:  Vaults, Elf
+WEIGHT: 2
+MONS:   dancing weapon ; damaged demon trident ego:distortion
+KMONS:  D = dancing weapon ; rift
+KMONS:  E = generate_awake occultist god:Lugonu name:mad_acolyte_of_Lugonu \
+        n_rpl n_des n_noc col:lightgreen tile:mons_mad_acolyte_of_lugonu; \
+        robe good_item . demon trident ego:distortion | demon trident ego:none \
+        spells:smiting.20.priest;banishment.10.priest;invisibility.10.priest;
+KMONS:  B = pile of debris
+ITEM:   demon trident ego:none w:15 / demon trident ego:distortion / \
+        demon trident ego:chaos w:5
+ITEM:   elf skeleton / blink frog skeleton
+KFEAT:  D = altar_lugonu
+KFEAT:  E = stone_arch
+NSUBST: ? = 3:1 / 4:d / *:., ! = 3:e / *:.
+TILE:   c : stone_wall_abyss_a / stone_wall_abyss_b / stone_wall_abyss_c
+MAP
+      c===c
+     cc..?cc
+    cc!?..?cc
+   cc??.DB.?cc
+  cc.?.!EU!?.cc
+ cc!.?.???!!?.cc
+ccccccccccccccccc
+ENDMAP
+
+####
 
 NAME:    regret_index_guardbook_plasma_beam
 TAGS:    no_monster_gen no_item_gen vaults_hard vaults_orient_n vaults_orient_s

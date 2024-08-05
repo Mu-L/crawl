@@ -978,20 +978,6 @@ bool player_has_feet(bool temp, bool include_mutations)
     return species::has_feet(you.species);
 }
 
-bool player_has_eyes(bool temp, bool include_mutations)
-{
-    if (include_mutations &&
-        you.get_mutation_level(MUT_EYEBALLS, temp))
-    {
-        return true;
-    }
-
-    if (temp)
-        return form_has_eyes(you.form);
-
-    return species::has_eyes(you.species);
-}
-
 bool player_has_ears(bool temp)
 {
     if (temp)
@@ -4957,11 +4943,11 @@ bool player::can_be_dazzled() const
 }
 
 /**
- * Players can be blinded only if they have eyes.
+ * Players can be blinded only if they're not undead.
  */
 bool player::can_be_blinded() const
 {
-    return player_has_eyes();
+    return !is_lifeless_undead();
 }
 
 /**
@@ -6224,11 +6210,14 @@ int player::skill(skill_type sk, int scale, bool real, bool temp) const
     else if (ash_has_skill_boost(sk))
             level = ash_skill_boost(sk, scale);
 
-    if (player_equip_unrand(UNRAND_CHARLATANS_ORB) && sk == SK_EVOCATIONS)
-        level = div_rand_round(level * 3, 2);
+    if (player_equip_unrand(UNRAND_CHARLATANS_ORB) && sk != SK_EVOCATIONS)
+        level += skill(SK_EVOCATIONS, 10, true, false) * scale / 50;
 
     if (temp && duration[DUR_HEROISM] && sk <= SK_LAST_MUNDANE)
-        level = min(level + 5 * scale, MAX_SKILL_LEVEL * scale);
+        level += 5 * scale;
+
+    if (level > MAX_SKILL_LEVEL * scale)
+        level = MAX_SKILL_LEVEL * scale;
 
     return level;
 }
@@ -7810,7 +7799,6 @@ bool player::has_bones(bool temp) const
 {
     if (temp)
         return form_has_bones(you.form);
-;
 
     return species::has_bones(you.species);
 }
