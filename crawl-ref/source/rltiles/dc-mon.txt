@@ -1119,6 +1119,14 @@ treant MONS_TREANT
 alderking0 MONS_ALDERKING
 alderking1
 briar_patch MONS_BRIAR_PATCH
+fungus_gulch0 MONS_FUNGUS_GULCH
+fungus_gulch1
+fungus_gulch2
+fungus_gulch3
+fungus_gulch_patch0 MONS_FUNGUS_GULCH_PATCH
+fungus_gulch_patch1
+fungus_gulch_patch2
+fungus_gulch_patch3
 %rim 1
 vine_stalker MONS_VINE_STALKER
 %rim 0

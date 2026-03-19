@@ -479,6 +479,12 @@ A statue of an orb of entropy
 A statue of a terrifying globe of profound nothingness, said to dwell within the
 Realm of Zot.
 %%%%
+A patch of mould
+
+A dense carpet of colourful mould, rustling with fecundity. The towering fungi
+which sprout from it can grow back in the blink of an eye, no matter how many
+times they are cut down.
+%%%%
 ########################################################################
 ### Branch entrances and exits
 ########################################################################

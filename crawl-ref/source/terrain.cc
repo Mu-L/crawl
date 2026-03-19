@@ -53,6 +53,7 @@
 #include "stringutil.h"
 #include "tag-version.h"
 #include "tileview.h"
+#include "timed-effects.h"
 #include "transform.h"
 #include "traps.h"
 #include "travel.h"
@@ -2016,6 +2017,8 @@ void set_terrain_changed(const coord_def p)
             }
         }
     }
+    else if (env.grid(p) == DNGN_MOULD_PATCH)
+        update_mould_tracking(p);
 
     env.map_knowledge(p).flags |= MAP_CHANGED_FLAG;
 

@@ -211,6 +211,11 @@ tileidx_t tileidx_feature_base(dungeon_feature_type feat)
         return TILE_DNGN_TOXIC_BOG;
     case DNGN_MUD:
         return TILE_LIQUEFACTION;
+    case DNGN_MOULD_PATCH:
+        if (player_in_branch(BRANCH_GULCH))
+            return TILE_DNGN_MOULD_PATCH_GULCH;
+        else
+            return TILE_DNGN_MOULD_PATCH;
     case DNGN_FLOOR:
         return TILE_FLOOR_NORMAL;
     case DNGN_ENDLESS_SALT:
@@ -2394,6 +2399,16 @@ static tileidx_t _tileidx_monster_no_props(const monster_info& mon)
         case MONS_BUSH:
             if (env.map_knowledge(mon.pos).cloud() == CLOUD_FIRE)
                 return TILEP_MONS_BURNING_BUSH;
+            return base;
+
+        case MONS_FUNGUS:
+            if (player_in_branch(BRANCH_GULCH))
+            {
+                if (env.map_knowledge(mon.pos).feat() == DNGN_MOULD_PATCH)
+                    return _mon_mod(TILEP_MONS_FUNGUS_GULCH_PATCH, tile_num);
+                else
+                    return _mon_mod(TILEP_MONS_FUNGUS_GULCH, tile_num);
+            }
             return base;
 
         case MONS_BOULDER_BEETLE:

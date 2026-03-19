@@ -1144,14 +1144,15 @@ ENDMAP
 NAME:   fedhas_altar_3
 TAGS:   transparent decor lairdec
 DEPTH:  D:3-, Lair, Depths
-NSUBST: b = 1:. / *:1
+NSUBST: M = 2:M / *:.
 MONS:   plant w:5 / fungus / nothing w:3
+KFEAT:  M = mould_patch
 : standard_overflow_setup(_G, { { "fedhas", "_" } }, true)
 MAP
 @111@
-1b1b1
+1M1M1
 11_11
-1b1b1
+1M1M1
 @111@
 ENDMAP
 
@@ -1182,9 +1183,11 @@ DEPTH:   D:3-, Lair
 KPROP:   xzd3P = no_tele_into
 MONS:    plant, fungus, oklob plant, bush, toadstool
 KMONS:   S = sacred lotus
-KFEAT:   d = floor
+KFEAT:   f = cache_of_fruit
+KFEAT:   M = mould_patch
 KFEAT:   S = w
 KFEAT:   C = c
+NSUBST:  M = 2:M / *:x, m = 2:M / *:x
 SUBST:   x = TTPPPPP.
 # Only make "oklob behind bushes" situation possible a bit deeper.
 : if you.absdepth() > 5 then
@@ -1193,8 +1196,7 @@ SUBST:   Q = 114, R = 11124
 : end
 SUBST:   P = 112, z = ., S : Sww
 SHUFFLE: ...", TU
-SUBST:   T = xt, U = xx
-SUBST:   " = .....5
+SUBST:   T = xt, U = xx, " = .....5
 COLOUR:  . = green / none
 COLOUR:  ' = green
 TILE:    c = dngn_stone_wall_green
@@ -1204,11 +1206,11 @@ MAP
 cccccccccCcCcCccccccccc
 cxxxxxxxxxxxxxxxxxxxxxc
 cxxxxxxxxxxxxxxPxxd3xxc
-cxxxxxxxxxxxxxxPddddxxc
-cxxxxxxxxxxxxxxPPPxzdxc
-cxxxxxxx.......xxPPxxxc
-cxxxxxx..ww.ww..xxPPxxc
-cxxxxx..www.www..xxxPxc
+cxxxxxxMxxxxxxxP...fxxc
+cxxxxxMxxxxxxxxPPPxz.xc
+cxxxMMxx.......xxPPxxxc
+cxxxMxx..ww.ww..xxPPxxc
+cxxMxx..www.www..xxxPxc
 cxxxx..wwww.wwww..xxxxc
 Cxxxx.wwwww.wwwww.xxxxC
 cxxxx.wwww'''wwww.xxxxc
@@ -1216,10 +1218,10 @@ Cxxxx.wSww'_'wwSw.xxxxC
 cxxxx.wwww'''wwww.xxxxc
 Cxxxx.wwwwwwwwwww.xxxxC
 cxxxx..wwwwwwwww..xxxxc
-cxxxxx..wwwwwww..xxxxxc
-cxxxxxx..wwwww..xxxxxxc
-cxxxxxxx.......xxxxxxxc
-cxxxxxxxxxC.Cxxxxxxxxxc
+cxxxxx..wwwwwww..xxmxxc
+cxxxxxx..wwwww..xxmxxxc
+cxxxxxxx.......xxmmxxxc
+cxxxxxxxxxC.Cxxxmxxxxxc
 cxxxxxxxxxc.cxxxxxxxxxc
 ccccccccCcC@CcCcccccccc
 ENDMAP
@@ -1322,26 +1324,28 @@ xxxxx'xxxxx
    x2@2x
 ENDMAP
 
-NAME:   nicolae_fedhas_fungal_naptime
-TAGS:   transparent decor
-DEPTH:  D:4-8
-KMONS:  1_ = sleepcap
-KMONS:  p = fungus
-ITEM:   spore talisman
+NAME:    nicolae_fedhas_fungal_naptime
+TAGS:    transparent decor
+DEPTH:   D:4-8
+KMONS:   1_ = sleepcap
+KMONS:   Pp = fungus
+ITEM:    spore talisman
+KFEAT:   P = mould_patch
+SHUFFLE: OP / OP / PO
 : if you.depth() >= 6 then
-NSUBST: ` = 1 / `
+NSUBST:  ` = 1 / `
 : end
-NSUBST: ` = 1:d``` / * = ```p
-SUBST:  p = ppp'
-FTILE:  '`_1pd = floor_rough_brown
+NSUBST:  ` = 1:d``` / * = ```p
+SUBST:   Op = ppp'
+FTILE:   '`_1pPd = floor_rough_brown
 : standard_overflow_setup(_G, { { "fedhas", "_" } }, true)
 MAP
 .......
-.`p`p`.
-.p`p`p.
+.`p`O`.
+.p`P`p.
 .`p_p`.
-.p`p`p.
-.`p`p`.
+.p`P`p.
+.`O`p`.
 .......
 ENDMAP
 
@@ -6180,18 +6184,21 @@ ENDMAP
 
 NAME:  grunt_temple_overflow_growth_and_decay
 TAGS:  transparent decor
-MONS:  plant, withered plant
+KMONS: 1P = fungus
+KMONS: 2S = withered plant
+KFEAT: P = mould_patch
+KITEM: S = human skeleton / kobold skeleton w:5
 SUBST: 1 = 1., 2 = 2.
 : standard_overflow_setup(_G, { { "fedhas", "A" },
 :                               { "kikubaaqudgha", "B" } }, true)
 MAP
 xxxxx
-x111xx@@
+x11Pxx@@
 x1A111..xxx
-x11.....22xxxx
-xxxx11.....22x
+xP1.....22xxxx
+xxxx11.....2Sx
    xxx..222B2x
-      @@xx222x
+      @@xxS22x
          xxxxx
 ENDMAP
 

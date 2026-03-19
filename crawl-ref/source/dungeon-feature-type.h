@@ -111,6 +111,7 @@ enum dungeon_feature_type
     DNGN_TRAP_PLATE,
     DNGN_SPIKE_LAUNCHER,
     DNGN_ORB_DAIS,
+    DNGN_MOULD_PATCH,
 #endif
 #if TAG_MAJOR_VERSION == 34
     DNGN_UNDISCOVERED_TRAP,
@@ -406,6 +407,7 @@ enum dungeon_feature_type
     DNGN_TRAP_DISPERSAL_INACTIVE,
     DNGN_ENTER_GULCH,
     DNGN_EXIT_GULCH,
+    DNGN_MOULD_PATCH,
 #endif
 
     NUM_FEATURES

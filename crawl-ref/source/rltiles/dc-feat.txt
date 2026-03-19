@@ -510,6 +510,9 @@ stone_smooth_beogh_0 STONE_SMOOTH_WALL_BEOGH
 stone_smooth_beogh_1
 gilded_reliquary DNGN_GILDED_RELIQUARY
 
+mould_patch_gulch0 DNGN_MOULD_PATCH_GULCH
+mould_patch_gulch1
+
 %sdir dngn/wall
 spike_launcher DNGN_SPIKE_LAUNCHER
 
@@ -873,6 +876,9 @@ teleporter DNGN_TELEPORTER
 
 transporter DNGN_TRANSPORTER
 transporter_landing_site DNGN_TRANSPORTER_LANDING
+
+mould_patch0 DNGN_MOULD_PATCH
+mould_patch1
 
 #### Automatic animation ends here.
 ## Miscellaneous entries that get drawn on the background.
