@@ -152,6 +152,7 @@ static map<enchant_type, monster_info_flags> trivial_ench_mb_mappings = {
     { ENCH_WARDING,         MB_WARDING },
     { ENCH_DIMINISHED_SPELLS, MB_DIMINISHED_SPELLS },
     { ENCH_EXPOSED,         MB_EXPOSED },
+    { ENCH_STAMPEDE,        MB_STAMPEDE },
 };
 
 static monster_info_flags ench_to_mb(const monster& mons, enchant_type ench)

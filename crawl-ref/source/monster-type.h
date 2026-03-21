@@ -71,6 +71,9 @@ enum monster_type                      // env.mons[].type
     MONS_HOG,
     MONS_HELL_HOG,
     MONS_HOLY_SWINE,            // porkalator
+#if TAG_MAJOR_VERSION > 34
+    MONS_SEWAGE_SOVEREIGN,
+#endif
 #if TAG_MAJOR_VERSION == 34
     MONS_GIANT_SLUG,
     MONS_AGATE_SNAIL,
@@ -1425,6 +1428,7 @@ enum monster_type                      // env.mons[].type
     MONS_FUNGAL_SHAMBLER,
     MONS_ROAMING_SLUDGEFISH,
     MONS_TELENCEPHALON,
+    MONS_SEWAGE_SOVEREIGN,
 #endif
 
     NUM_MONSTERS,               // used for polymorph

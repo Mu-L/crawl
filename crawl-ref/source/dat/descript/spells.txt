@@ -2015,6 +2015,16 @@ Releases a fast, gas-filled floating spore. After seeking out its foe, the
 spore will explode, damaging anything caught in the blast and further confusing
 living creatures.
 %%%%
+Stampede spell
+
+Charges rapidly in a straight line towards a foe. The user will move at double
+speed in that direction each turn afterward, attacking any enemies in their path
+with increased damage and accuracy and pushing them backward, until they either
+become unable to move or have overshot their target.
+
+Can only be used while their target is standing in a compass direction from the
+user.
+%%%%
 Starburst spell
 
 Releases penetrating bolts of fire from the caster in every direction.

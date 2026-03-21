@@ -122,6 +122,7 @@ tesseract_spawn TESSERACT_SPAWN
 sundering SUNDERING
 mute MUTE
 exposed EXPOSED
+stampede STAMPEDE
 
 something_under SOMETHING_UNDER
 new_stair NEW_STAIR

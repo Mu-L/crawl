@@ -268,6 +268,12 @@ static const mon_spellbook mspell_list[] =
       }
     },
 
+    {  MST_SEWAGE_SOVEREIGN,
+      {
+       { SPELL_STAMPEDE, 200, MON_SPELL_NATURAL},
+      }
+    },
+
     {  MST_RAIJU,
       {
        { SPELL_BLINKBOLT, 40, MON_SPELL_MAGICAL },

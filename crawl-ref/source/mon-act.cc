@@ -36,6 +36,7 @@
 #include "libutil.h"
 #include "losglobal.h"
 #include "los.h"
+#include "melee-attack.h"
 #include "mapmark.h"
 #include "message.h"
 #include "mon-abil.h"
@@ -49,6 +50,7 @@
 #include "mon-project.h"
 #include "mon-speak.h"
 #include "mon-tentacle.h"
+#include "movement.h"
 #include "nearby-danger.h"
 #include "player-notices.h"
 #include "religion.h"
@@ -1428,6 +1430,62 @@ static void _burstshroom_grow(monster& mons)
         mons.lose_energy(EUT_MOVE);
 }
 
+// Handles one turn of a monster stampeding, moving them and potentially ending
+// the status if stampeding is no longer possible.
+//
+// Returns false if no stampede effect could happen (and thus the monster should
+// take a normal action this turn instead).
+bool mon_do_stampede(monster& mon)
+{
+    // If our movement is forcibly stopped, end immediately.
+    if (mon.cannot_move() || mon.is_constricted() || mon.cannot_act() || mon.caught())
+    {
+        mon.del_ench(ENCH_STAMPEDE);
+        return false;
+    }
+
+    // If continuing to move in our current direction will start to move us
+    // further away from our foe, mark stampede to end after this movement.
+    // (To allow the monster to 'overshoot', but not too far.)
+    bool should_end = false;
+    actor* foe = mon.get_foe();
+    coord_def target = foe && mon.can_see(*foe) ? foe->pos() : mon.target;
+    const coord_def step = mon.props[STAMPEDE_DIRECTION_KEY].get_coord();
+    if (grid_distance(mon.pos() + (step * 2), target) > grid_distance(mon.pos(), target))
+        should_end = true;
+
+    // Attempt to take up to two steps, leaving dust clouds as we do so.
+    if (stampede_step(mon, mon.pos() + step, true))
+    {
+        place_cloud(CLOUD_DUST, mon.pos() - step, random_range(2, 4), &mon);
+        if (stampede_step(mon, mon.pos() + step, true))
+            place_cloud(CLOUD_DUST, mon.pos() - step, random_range(2, 4), &mon);
+    }
+    // Couldn't take even one step, so end immediately and do something else.
+    else
+    {
+        mon.del_ench(ENCH_STAMPEDE);
+        return false;
+    }
+
+    // If there is some enemy in the direction of our charge at the end of it, attack them.
+    if (actor* act = actor_at(mon.pos() + step))
+    {
+        if (!mons_aligned(&mon, act))
+        {
+            melee_attack attk(&mon, act);
+            attk.to_hit_bonus = 15;
+            attk.dmg_mult = 50;
+            attk.launch_attack_set();
+        }
+    }
+
+    if (should_end)
+        mon.del_ench(ENCH_STAMPEDE);
+
+    return true;
+}
+
 static void _mons_fire_wand(monster& mons, spell_type mzap, bolt &beem)
 {
     if (!simple_monster_message(mons, " zaps a wand."))
@@ -2139,6 +2197,12 @@ void handle_monster_move(monster* mons)
             && (++mons->move_spurt / 6 % 3 == 1 || mons->move_spurt / 3 % 5 == 1))
     {
         mons->speed_increment -= non_move_energy;
+        return;
+    }
+
+    if (mons->has_ench(ENCH_STAMPEDE) && mon_do_stampede(*mons))
+    {
+        mons->lose_energy(EUT_MOVE);
         return;
     }
 

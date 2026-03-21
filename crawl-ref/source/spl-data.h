@@ -4649,6 +4649,17 @@ static const struct spell_desc spelldata[] =
     TILEG_SEISMIC_STOMP,
 },
 
+{
+    SPELL_STAMPEDE, "Stampede",
+    spschool::translocation,
+    spflag::monster,
+    4,
+    200,
+    LOS_RADIUS, LOS_RADIUS,
+    0,
+    TILEG_STAMPEDE,
+},
+
 #if TAG_MAJOR_VERSION == 34
 #define AXED_SPELL(tag, name) \
     { tag, name, spschool::none, spflag::none, 7, 0, -1, -1, 0, TILEG_ERROR },

@@ -124,6 +124,7 @@ oblivion_hound MONS_OBLIVION_HOUND
 hog MONS_HOG
 hell_hog MONS_HELL_HOG
 holy_swine MONS_HOLY_SWINE
+sewage_sovereign MONS_SEWAGE_SOVEREIGN
 %rim 1
 %sdir player/felids
 cat4 MONS_FELID

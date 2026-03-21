@@ -2803,6 +2803,12 @@ A member of an order of monks who abandoned their former faith. It now serves
 a minor god of wind and whispers, who allows it to calm the air and, when
 in great need, to break the stillness with divine thunder.
 %%%%
+sewage sovereign
+
+A hulking mutant swine who feasts like a king upon the abundant fungus of
+its realm and lords over its other denizens with brute force and unstoppable
+bulk.
+%%%%
 shadow
 
 A featureless silhouette of your own body, moving independently through the

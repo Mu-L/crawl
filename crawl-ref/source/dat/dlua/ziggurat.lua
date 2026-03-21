@@ -204,7 +204,7 @@ mset(with_props(spec_fn(function ()
   local f = 5 + you.zigs_completed() * 9
   local g = 10 + you.zigs_completed() * 12
   return "place:Lair:$ w:" .. d .. " / dire elephant w:" .. e .. " / " ..
-         "skyshark w:" .. e .. " /  catoblepas w:" .. e - 5 .. " / " ..
+         "sewage sovereign w:" .. e .. " /  catoblepas w:" .. e - 5 .. " / " ..
          "spriggan druid w:" .. e - 5 .. " / torpor snail w:" .. f + 5 .. " / " ..
          "hellephant w:" .. g .. " / caustic shrike w:" .. g
 end), { weight = 5 }))

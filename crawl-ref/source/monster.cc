@@ -3510,6 +3510,7 @@ int monster::known_chaos(bool check_spells_god) const
         || type == MONS_TELENCEPHALON       // Experimental mutant.
         || type == MONS_MONGREL_WURM       // Hybrid breed mutants.
         || type == MONS_ROAMING_SLUDGEFISH  // Psychic mutant.
+        || type == MONS_SEWAGE_SOVEREIGN    // Hulking mutant.
         || type == MONS_WRETCHED_STAR
         || type == MONS_MORPHOGENIC_OOZE
         || type == MONS_KOBOLD_FLESHCRAFTER // Mutated tentacles!
