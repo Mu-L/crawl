@@ -272,6 +272,10 @@ goliath_frog MONS_GOLIATH_FROG
 skyshark MONS_SKYSHARK
 %sdir mon/aquatic
 rock_fish MONS_ROCK_FISH
+roaming_sludgefish0 MONS_ROAMING_SLUDGEFISH
+roaming_sludgefish1
+roaming_sludgefish2
+roaming_sludgefish3
 %sdir mon/undead
 marrowcuda MONS_MARROWCUDA
 

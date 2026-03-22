@@ -4433,6 +4433,7 @@ static bool _bog_can_affect(const actor *caster, const actor *target)
     const monster *mons = target->as_monster();
     return mons
            && mons->type != MONS_FENSTRIDER_WITCH  // stilting above the muck!
+           && mons->type != MONS_ROAMING_SLUDGEFISH // naturally swims in it
            && mons->type != MONS_ORC_APOSTLE;  // walking on top of it
 }
 

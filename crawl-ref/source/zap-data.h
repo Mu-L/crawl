@@ -110,6 +110,22 @@ static const zap_info zap_data[] =
 },
 
 {
+    ZAP_ANTIMAGIC,
+    "bolt of antimagic",
+    nullptr,
+    nullptr,
+    new dicedef_calculator<3, 3, 1, 11>,
+    new tohit_calculator<17, 1, 25>,
+    MAGENTA,
+    false,
+    BEAM_ANTIMAGIC,
+    DCHAR_FIRED_ZAP,
+    true,
+    false,
+    TILE_BOLT_ANTIMAGIC,
+},
+
+{
     ZAP_BOLT_OF_FLESH,
     "bolt of flesh",
     nullptr,

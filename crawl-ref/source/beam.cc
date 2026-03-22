@@ -4446,7 +4446,7 @@ void bolt::affect_player()
     if (flavour == BEAM_CRYSTALLISING && !one_chance_in(4))
         you.vitrify(agent(), random_range(8, 18));
 
-    if (flavour == BEAM_DRAIN_MAGIC)
+    if (flavour == BEAM_ANTIMAGIC)
         you.drain_magic(agent(), ench_power);
 
     if (origin_spell == SPELL_SOJOURNING_BOLT
@@ -5196,7 +5196,7 @@ void bolt::monster_post_hit(monster* mon, int dmg)
     if (flavour == BEAM_CRYSTALLISING && !one_chance_in(4))
         mon->vitrify(agent(), random_range(8, 18));
 
-    if (flavour == BEAM_DRAIN_MAGIC)
+    if (flavour == BEAM_ANTIMAGIC)
         mon->drain_magic(agent(), ench_power);
 
     if (dmg)
@@ -5952,7 +5952,7 @@ bool ench_flavour_affects_monster(actor *agent, beam_type flavour,
         break;
 
     case BEAM_DIMINISH_SPELLS:
-    case BEAM_DRAIN_MAGIC:
+    case BEAM_ANTIMAGIC:
         rc = mon->antimagic_susceptible();
         break;
 
@@ -7534,7 +7534,7 @@ static string _beam_type_name(beam_type type)
     case BEAM_VIRULENCE:             return "virulence";
     case BEAM_AGILITY:               return "agility";
     case BEAM_SAP_MAGIC:             return "sap magic";
-    case BEAM_DRAIN_MAGIC:           return "drain magic";
+    case BEAM_ANTIMAGIC:             return "antimagic";
     case BEAM_DIMINISH_SPELLS:       return "diminish spells";
     case BEAM_TUKIMAS_DANCE:         return "tukima's dance";
     case BEAM_DEATH_RATTLE:          return "breath of the dead";

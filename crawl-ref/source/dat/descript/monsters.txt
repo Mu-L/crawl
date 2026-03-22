@@ -2680,6 +2680,13 @@ river rat
 A rodent with hair of a most peculiar green colour, and a powerful bite. It
 tends to form great swarms with its kin.
 %%%%
+roaming sludgefish
+
+A mutant sewer fish whose continuous exposure to wild magic has given it an
+appetite for magic itself. It swims through the air in a telekinetic bubble
+of the very sludge that gave birth to it, seeking out exotic prey from which
+to siphon novel magic.
+%%%%
 rock fish
 
 A strange stone-scaled fish that swims through solid rock with the same ease

@@ -981,6 +981,22 @@ Blink Away revenant cast
 
 __NONE
 %%%%
+Hurl Sludge roaming sludgefish cast
+
+@The_monster@ coughs and spits up spare sludge @at@ @target@.
+
+@The_monster@ concentrates and launches forth toxic muck @at@ @target@.
+%%%%
+Bolt of Antimagic roaming sludgefish cast
+
+@The_monster@ writhes with glee as it focuses its will @at@ @target@.
+
+@The_monster@ burbles hungrily as it manifests raw antimagic @at@ @target@.
+%%%%
+silent Bolt of Antimagic roaming sludgefish cast
+
+@The_monster@ writhes with hunger as it focuses its will @at@ @target@.
+%%%%
 rusted inspector cast
 
 @The_monster@ fervently clicks and whirrs while staring @at@ @target@.

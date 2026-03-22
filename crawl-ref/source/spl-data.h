@@ -2650,6 +2650,17 @@ static const struct spell_desc spelldata[] =
 },
 
 {
+    SPELL_BOLT_OF_ANTIMAGIC, "Bolt of Antimagic",
+    spschool::conjuration | spschool::hexes,
+    spflag::dir_or_target | spflag::needs_tracer | spflag::monster,
+    6,
+    200,
+    5, 5,
+    0,
+    TILEG_BOLT_OF_ANTIMAGIC,
+},
+
+{
     SPELL_BOLT_OF_FLESH, "Bolt of Flesh",
     spschool::conjuration | spschool::necromancy | spschool::summoning,
     spflag::dir_or_target | spflag::needs_tracer| spflag::monster

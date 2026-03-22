@@ -186,6 +186,11 @@ Blinkbolt spell
 Transforms the caster into a lightning bolt, and translocates the caster to
 the bolt's destination.
 %%%%
+Bolt of Antimagic spell
+
+Fires a penetrating bolt of ontologically-paradoxical antimagic, draining its
+victims' reserves of magic.
+%%%%
 Bolt of Cold spell
 
 Fires a penetrating bolt of frost.

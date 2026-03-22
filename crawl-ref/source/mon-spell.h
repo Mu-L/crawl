@@ -1061,6 +1061,14 @@ static const mon_spellbook mspell_list[] =
       }
     },
 
+    // ('F') Frogs and fish.
+    {  MST_ROAMING_SLUDGEFISH,
+      {
+        { SPELL_BOLT_OF_ANTIMAGIC, 34, MON_SPELL_MAGICAL },
+        { SPELL_HURL_SLUDGE, 30, MON_SPELL_MAGICAL },
+      }
+    },
+
     // ('G') Organs.
     {  MST_GLASS_EYE,
       {

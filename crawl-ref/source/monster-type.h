@@ -676,6 +676,7 @@ enum monster_type                      // env.mons[].type
 #if TAG_MAJOR_VERSION == 34
     MONS_JELLYFISH,
 #else
+    MONS_ROAMING_SLUDGEFISH,
     MONS_FORMLESS_JELLYFISH,
 #endif
     MONS_WATER_ELEMENTAL,
@@ -1419,6 +1420,7 @@ enum monster_type                      // env.mons[].type
     MONS_MONGREL_WURM,
     MONS_RUSTED_INSPECTOR,
     MONS_FUNGAL_SHAMBLER,
+    MONS_ROAMING_SLUDGEFISH,
 #endif
 
     NUM_MONSTERS,               // used for polymorph
