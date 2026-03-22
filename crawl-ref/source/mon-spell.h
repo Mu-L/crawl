@@ -1118,6 +1118,13 @@ static const mon_spellbook mspell_list[] =
       }
     },
 
+    {  MST_TELENCEPHALON,
+      {
+       { SPELL_BRAIN_BITE, 30, MON_SPELL_MAGICAL },
+       { SPELL_CALL_DOWN_LIGHTNING, 20, MON_SPELL_MAGICAL },
+      }
+    },
+
     // ('H') Animal hybrids.
     {  MST_MANTICORE,
       {

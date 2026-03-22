@@ -1086,6 +1086,18 @@ sun moth cast
 
 @The_monster_possessive@ wings beat fiercely.
 %%%%
+Brain Bite telencephalon cast
+
+@The_monster@ pulsates in unstable patterns.
+
+@The_monster@ spins and shimmers in dizzy loops.
+%%%%
+Call Down Lightning telencephalon cast
+
+Electricity dances across @the_monster_possessive@ nodes.
+
+@The_monster@ bathes in capricious mystic energies.
+%%%%
 Rebounding Blaze thermic dynamo cast
 
 A wild whirl of fire shoots out from @the_monster@ @at@ @target@.

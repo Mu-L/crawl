@@ -3178,6 +3178,16 @@ titans attempted to pull themselves free of mortality through brute strength.
 They almost succeeded before rot dragged them to Ereshkigal. A glimmer of their
 former beauty remains, alluring despite the stench.
 %%%%
+telencephalon
+
+An abandoned arcane experiment, its original purpose more inscrutable than most.
+Made of magical crystal fused with mutant brain tissue, it bobs about
+autonomously and erratically, sparking all the while.
+
+When badly damaged, it will unleash a staggering telekinetic shockwave, knocking
+back those in its surroundings and inflicting irresistible confusion on any who
+might harm it.
+%%%%
 tengu
 
 A humanoid figure with the head and talons of a bird. Its ferociously combative

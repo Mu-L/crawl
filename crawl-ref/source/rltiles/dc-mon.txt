@@ -889,6 +889,7 @@ ballistomycete_spore MONS_BALLISTOMYCETE_SPORE
 glass_eye MONS_GLASS_EYE
 %rim 0
 mon/aberrations/glowing_orange_brain MONS_GLOWING_ORANGE_BRAIN
+mon/aberrations/telencephalon MONS_TELENCEPHALON
 %rim 1
 great_orb_of_eyes MONS_GREAT_ORB_OF_EYES
 %rim 0

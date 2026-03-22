@@ -186,6 +186,9 @@ enum monster_type                      // env.mons[].type
     MONS_EYE_OF_DEVASTATION,
     MONS_GREAT_ORB_OF_EYES,
     MONS_GLOWING_ORANGE_BRAIN,
+#if TAG_MAJOR_VERSION > 34
+    MONS_TELENCEPHALON,
+#endif
 
     MONS_DANCING_WEAPON,
 #if TAG_MAJOR_VERSION > 34
@@ -1421,6 +1424,7 @@ enum monster_type                      // env.mons[].type
     MONS_RUSTED_INSPECTOR,
     MONS_FUNGAL_SHAMBLER,
     MONS_ROAMING_SLUDGEFISH,
+    MONS_TELENCEPHALON,
 #endif
 
     NUM_MONSTERS,               // used for polymorph
