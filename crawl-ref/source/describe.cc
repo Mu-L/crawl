@@ -5034,6 +5034,7 @@ static string _flavour_base_desc(attack_flavour flavour)
         { AF_DOOM,              "inflict doom" },
         { AF_SLIMIFY,           "slowly slimify the target" },
         { AF_DIM,               "diminish the target's spells" },
+        { AF_BURSTSHROOM,       "grow burstshrooms behind the defender" },
         { AF_PLAIN,             "" },
     };
 
@@ -6493,6 +6494,11 @@ static string _monster_stat_description(const monster_info& mi, bool mark_spells
     {
         const dice_def dam = battlesphere_damage_from_hd(mi.hd);
         result << "Projectile damage: " << dam.num << "d" << dam.size << "\n";
+    }
+    else if (mi.type == MONS_BURSTSHROOM && mi.summoner_id != MID_PLAYER)
+    {
+        const dice_def dam = zap_damage(ZAP_BURSTSPORE, mi.hd * 10, true, false);
+        result << "Spore damage: " << dam.num << "d" << dam.size << "\n";
     }
 
     // Flying monsters can't be forced to fall into liquids these days.

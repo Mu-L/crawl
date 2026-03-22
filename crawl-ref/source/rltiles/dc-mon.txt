@@ -1127,6 +1127,7 @@ treant MONS_TREANT
 alderking0 MONS_ALDERKING
 alderking1
 briar_patch MONS_BRIAR_PATCH
+fungal_shambler MONS_FUNGAL_SHAMBLER
 fungus_gulch0 MONS_FUNGUS_GULCH
 fungus_gulch1
 fungus_gulch2

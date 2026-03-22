@@ -1361,23 +1361,25 @@ static void _burstshroom_grow(monster& mons)
     mons.number -= 1;
     if (mons.number <= 0)
     {
-        if (mons.was_created_by(you, MON_SUMM_SPORE) && !you.can_see(mons))
+        // Player-created mushrooms wither when out of sight.
+        const bool player_mushroom = mons.was_created_by(you, MON_SUMM_SPORE);
+        if (player_mushroom && !you.can_see(mons))
         {
             monster_die(mons, KILL_TIMEOUT, NON_MONSTER);
             return;
         }
 
-        vector<monster*> affected;
+        vector<actor*> affected;
         bool need_redraw = false;
         for (adjacent_iterator ai(mons.pos()); ai; ++ai)
         {
-            if (monster* mon_at = monster_at(*ai))
+            if (actor* act = actor_at(*ai))
             {
-                if (mons_aligned(&mons, mon_at))
+                if (mons_aligned(&mons, act))
                     continue;
 
-                if (!mon_at->is_unbreathing())
-                    affected.push_back(mon_at);
+                if (!act->is_unbreathing())
+                    affected.push_back(act);
             }
 
             if (you.see_cell(*ai) && !cell_is_solid(*ai))
@@ -1392,21 +1394,31 @@ static void _burstshroom_grow(monster& mons)
             animation_delay(20, true);
 
         bolt spores;
-        zappy(ZAP_BURSTSPORE, 1, false, spores);
-        spores.damage = get_form(transformation::spore)->get_special_damage();
-        spores.set_agent(&you);
+        zappy(ZAP_BURSTSPORE, mons.get_hit_dice() * 10, !player_mushroom, spores);
+        if (player_mushroom)
+        {
+            spores.damage = get_form(transformation::spore)->get_special_damage();
+            spores.set_agent(&you);
+        }
+        else
+            spores.set_agent(&mons);
         spores.source = mons.pos();
         spores.hit_verb = "engulf";
         spores.in_explosion_phase = true;
 
-        for (monster* targ : affected)
+        for (actor* targ : affected)
         {
             spores.explosion_affect_cell(targ->pos());
-            if (targ->alive() && !targ->has_ench(ENCH_DAZED)
-                && x_chance_in_y(get_form(transformation::spore)->get_level(10), targ->get_hit_dice() * 30))
+            if (targ->alive()
+                && ((targ->is_monster() && !targ->as_monster()->has_ench(ENCH_DAZED)
+                     && x_chance_in_y(mons.get_hit_dice() * 2, targ->get_hit_dice() * 3))
+                    || (targ->is_player() && !you.duration[DUR_DAZED] && one_chance_in(3))))
             {
                 targ->daze(random_range(2, 5));
-                simple_monster_message(*targ, " is dazed by the spores.");
+                if (targ->is_monster())
+                    simple_monster_message(*targ->as_monster(), " is dazed by the spores.");
+                else
+                    mprf(MSGCH_WARN, "You are dazed by the spores!");
             }
         }
 

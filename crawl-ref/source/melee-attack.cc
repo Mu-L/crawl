@@ -768,23 +768,27 @@ void melee_attack::maybe_do_mesmerism()
         defender->as_monster()->add_ench(mon_enchant(ENCH_ORB_COOLDOWN, defender, random_range(120, 200)));
 }
 
-static void _grow_mushrooms(const monster& mon)
+void melee_attack::grow_burstshrooms(int hd)
 {
     // Can't extract position from a reset monster (which may have happened due
     // to disto banishment).
-    if (mon.type == MONS_NO_MONSTER || mon.is_firewood() || mon.wont_attack())
+    if (!defender || defender->type == MONS_NO_MONSTER || defender->is_firewood()
+        || mons_aligned(attacker, defender))
+    {
         return;
+    }
 
-    vector<coord_def> spots = get_wall_ring_spots(mon.pos(),
-                                                  mon.pos() + (mon.pos() - you.pos()),
+    vector<coord_def> spots = get_wall_ring_spots(defender->pos(),
+                                                  defender->pos() + (defender->pos() - attacker->pos()),
                                                   3);
 
-    mgen_data mgen = mgen_data(MONS_BURSTSHROOM, BEH_FRIENDLY, coord_def(),
+    mgen_data mgen = mgen_data(MONS_BURSTSHROOM, SAME_ATTITUDE(attacker), coord_def(),
                                MHITNOT, MG_FORCE_PLACE);
-    mgen.hd = get_form()->get_level(1) / 2;
-    mgen.set_summoned(&you, MON_SUMM_SPORE, 100, false);
+    mgen.hd = hd;
+    mgen.set_summoned(attacker, MON_SUMM_SPORE, 100, false, false);
 
     bool created = false;
+    bool player_can_see = you.see_cell(defender->pos());
     for (coord_def spot : spots)
     {
         if (actor_at(spot))
@@ -796,11 +800,12 @@ static void _grow_mushrooms(const monster& mon)
             // Randomize detonation time a little.
             shroom->number = random_range(3, 5);
             created = true;
+            player_can_see |= you.see_cell(spot);
         }
     }
 
-    if (created)
-        mprf("Mushrooms sprout behind %s.", mon.name(DESC_THE).c_str());
+    if (created && player_can_see)
+        mprf("Mushrooms sprout behind %s.", defender->name(DESC_THE).c_str());
 }
 
 /* An attack has been determined to have hit something
@@ -981,7 +986,7 @@ bool melee_attack::handle_phase_hit()
 
     if (attacker->is_player() && you.form == transformation::spore)
     {
-        _grow_mushrooms(*defender->as_monster());
+        grow_burstshrooms(get_form()->get_level(1) / 2);
 
         if (defender->alive() && !defender->is_unbreathing()
             && mons_has_attacks(*defender->as_monster(), false)
@@ -4494,6 +4499,10 @@ void melee_attack::mons_apply_attack_flavour(attack_flavour flavour)
             mpr("Your doom draws closer.");
         break;
     }
+
+    case AF_BURSTSHROOM:
+        grow_burstshrooms(attacker->get_hit_dice() * 2 / 3);
+        break;
 
     }
 
