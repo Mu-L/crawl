@@ -727,6 +727,9 @@ zig_used DNGN_PORTAL_ZIGGURAT_GONE
 desolation_portal DNGN_PORTAL_DESOLATION
 desolation_exit DNGN_EXIT_DESOLATION
 desolation_portal_closed DNGN_PORTAL_DESOLATION_GONE
+gulch_portal DNGN_PORTAL_GULCH
+gulch_exit DNGN_EXIT_GULCH
+gulch_portal_rusted DNGN_PORTAL_GULCH_GONE
 crucible_exit DNGN_EXIT_CRUCIBLE
 
 portal_unknown DNGN_UNKNOWN_PORTAL
