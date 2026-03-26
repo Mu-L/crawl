@@ -1,0 +1,156 @@
+##############################################################################
+#
+# The Gulch (regret-index)
+#
+# A hard-mode Sewer much later than Sewers (in fact, so late both can spawn
+# in the same game).
+#
+# Flavour: Mutant beasts, abandoned construct experiments, and small amounts
+# of borrowed slimes and Lair branch beasts. Set in a mix of fungal mould
+# patches, scrap-filled trash chambers and small amounts of filthy water.
+#
+# Gameplay: Nearly every new monster stacks on debuffs from throughout the game,
+# including unavoidable transient mutations since mutation was reduced in 0.34.
+# Also playing around with firewood and liquid providing cover for both players
+# and monsters alike.
+#
+##############################################################################
+
+: crawl_require('dlua/vault.lua')
+
+{{
+
+-- If gulch entry vaults want the `1' glyph to place a monster, they should
+-- define the `1' through KMONS (and not the usual MONS statement).
+function gulch_portal(e)
+  local timeout_turns = crawl.random_range(600, 800)
+
+  local messager =
+    timed_msg {
+       initmsg = { "You hear the sound of rushing sludge.",
+                   "There is an entrance to a gutter gulch on this level. "
+                   .. "Hurry and find it before the portal rusts away!" },
+      finalmsg = "You hear the drain falling apart.",
+
+      verb = 'rusting',
+      noisemaker = 'mutagenic drain',
+      ranges = {
+        { 5000, 'slow ' },  { 4000, '' },
+        { 2500, 'brisk ' }, { 1500, 'quick ' },
+        { 0, 'rapid ' }
+      }
+    }
+
+  e.lua_marker('O',
+      timed_marker {
+        disappear = "The mutagenic drain falls to bits.",
+        entity = 'drain',
+        turns = timeout_turns,
+        single_timed = true,
+        floor = "expired_portal",
+        feat_tile = "dngn_portal_gulch_gone",
+        msg = messager })
+  e.tags("uniq_gulch vaults_gulch no_monster_gen chance_gulch")
+  -- We use the Vaults room generator to places these.
+  e.chance(0)
+  e.kfeat("O = enter_gulch")
+  e.kfeat("1 = W")
+  e.colour("1W = lightgreen")
+  e.colour("w = green")
+  e.tile("x = wall_gulch_brick")
+  e.tile("c = wall_stone_gulch")
+end
+
+function gulch_setup(e)
+  e.kfeat("< = exit_gulch")
+  e.colour("w = green")
+  e.colour("W = lightgreen")
+  e.tile("c = wall_stone_gulch")
+  e.tile("v = metal_wall_gulch")
+end
+}}
+
+# Basic Gulch entries ##########################################
+# NOTE: See comments above regarding KMONS for the 1 glyph in these vaults.
+default-depth: Vaults, !Vaults:$
+
+NAME:   portal_gulch_entry_c
+KMONS:  1 = alligator / snapping turtle / anaconda / radroach
+NSUBST: W = 8 = 111W / *:W
+NSUBST: n = 2:+ / 3:n / *:c
+: gulch_portal(_G)
+MAP
+ .........
+...........
+...nnnnnn..
+..nnWWWWn..
+..nWWOWWn..
+..nWWWWnn..
+..nnnnnn...
+...........
+ .........
+ENDMAP
+
+# The actual portal vaults #####################################
+default-depth: Gulch
+
+# Placeholder conversion of a Sewer map.
+NAME:    regret_index_gulch_wild_fort
+TAGS:    no_monster_gen no_item_gen no_pool_fixup
+ORIENT:  encompass
+MONS:    alligator / snapping turtle / anaconda w:4, radroach, lindwurm
+MONS:    great orb of eyes, crawling flesh cage, glowing orange brain
+KMONS:   P = pile of debris
+: item(dgn.loot_potions)
+: item(dgn.loot_scrolls)
+ITEM:    any scroll q:3 / any potion q:3, any talisman randart
+ITEM:    stone q:1 no_pickup / stone q:2 no_pickup
+KITEM:   $ = $ no_pickup
+KFEAT:   M = cache_of_meat / cache_of_baked_goods w:3
+KFEAT:   Y = W
+KFEAT:   y = w
+SUBST:   0 = 1111223, 6 = 556, Z = xxvw.., z = xxWw...
+SHUFFLE: BCDEF
+# Higher average count of loot (but not a higher cap), in exchange for the pain.
+NSUBST:  B = 1:def / 1:$ / 3:1 / 1:2 / 1:3 / 3 = 1123... / *:.
+NSUBST:  C = 1:d / 2 = f$ / 4:5 / 2 = 5. / *:.
+NSUBST:  D = 1:def$$ / 2:3 / 2:5 / 1:35. / *:.
+NSUBST:  E = 2:f / 2:$ / 3 = 123.. / 1:4 / 1:M / *:.
+NSUBST:  F = 1:d / 1:e / 1:g / 1:4 / 2:5 / 2 = 5. / 1:6 / 1:M / *:.
+KPROP:   yY = no_tele_into
+FTILE:   123456def$M = floor_gulch / floor_gulch_trash
+: gulch_setup(_G)
+MAP
+     cxxxxx                   xxxxxc
+     xWBBBcx                 xcDDDWx
+     xWBBBBx                 xDDDDWx
+     xWBBBBx  xvvvvvvvvvvvx  xDDDDWx
+     cxxBBxvvvv...vYyyv...vvvvxDDxxc
+       vx+vW....vvvyYYvvv....Wv+xv
+       xvWw.Z...v.vYyYv.v...Z.wWvx
+      xvW.Z....vv.vYYyv.vv....Z.Wvx
+  cxc v...........vyyYv...........v cxc
+cxxCxxv..Z.Z....v.vnnnv.v....Z.Z..vxxExxc
+xWCCCvW......v....+.n.+....v......WvEEEWx
+xWCCC+w.Z.Z..v....v.<.v....v..Z.Z.w+EEEWx
+xWCCCvW......v....+.n.+....v......WvEEEWx
+cxxCxxv..Z.Z....v.vnnnv.v....Z.Z..vxxExxc
+  cxc v...........vyyYv...........v cxc
+      xvW.Z....vv.vYYyv.vv....Z.Wvx
+       xvWw.Z...v.vYyYv.v...Z.wWvx
+       vx+vW....vvvyYYvvv....Wv+xv
+     vxx..xvvvv...vYyyv...vvvvxFFxxv
+     xW.hh.xwWxn+nvnnnvn+nxWwxFFFFWx
+     xW.hh.xwwWW3W+W3W+W3WWwwxFFFFWx
+     xW...vPwwwwwwvwwwvwwwwwwxvFFFWx
+     vxxxxPw.5......W........wxxxxxv
+        xww.6.1x...zxz....x...wwx
+        xwx5.1x...WWWWW....x..xwx
+        xxxxxxxxxxxxxxxxxxxxxx.xx
+       xx<.xWW.00xWW....x0.0x...xx
+       xw..xxxWz0xxxWz..x0w0x.z.wx
+       xw....WW....WW...xWxWx...wx
+       xw...zWxxx.zWxxx.w.x.w.z.wx
+       xxA....WWx...WWx...x....<xx
+        xxxxxxxxxxxxxxxxxxxxxxxxx
+ENDMAP

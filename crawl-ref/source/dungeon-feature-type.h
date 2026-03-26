@@ -301,6 +301,9 @@ enum dungeon_feature_type
 #endif
     DNGN_ENTER_ICE_CAVE,
     DNGN_ENTER_VOLCANO,
+#if TAG_MAJOR_VERSION > 34
+    DNGN_ENTER_GULCH,
+#endif
     DNGN_ENTER_WIZLAB,
     DNGN_ENTER_DESOLATION,
 #if TAG_MAJOR_VERSION > 34
@@ -322,6 +325,9 @@ enum dungeon_feature_type
 #endif
     DNGN_EXIT_ICE_CAVE,
     DNGN_EXIT_VOLCANO,
+#if TAG_MAJOR_VERSION > 34
+    DNGN_EXIT_GULCH,
+#endif
     DNGN_EXIT_WIZLAB,
 #if TAG_MAJOR_VERSION == 34
     DNGN_EXIT_LABYRINTH,
@@ -398,6 +404,8 @@ enum dungeon_feature_type
     DNGN_FRIGID_WALL,
     DNGN_ZOT_STATUE,
     DNGN_TRAP_DISPERSAL_INACTIVE,
+    DNGN_ENTER_GULCH,
+    DNGN_EXIT_GULCH,
 #endif
 
     NUM_FEATURES

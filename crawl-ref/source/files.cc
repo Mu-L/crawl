@@ -1623,6 +1623,7 @@ static const vector<branch_type> portal_generation_order =
 #endif
     // do not pregenerate bazaar (TODO: this is non-ideal)
     // do not pregenerate trove
+    BRANCH_GULCH,
     BRANCH_WIZLAB,
     BRANCH_DESOLATION,
 };

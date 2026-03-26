@@ -286,6 +286,11 @@ void tile_default_flv(branch_type br, tile_flavour &flv)
         flv.floor = TILE_FLOOR_ROUGH_RED;
         return;
 
+    case BRANCH_GULCH:
+        flv.wall  = TILE_WALL_GULCH_BRICK;
+        flv.floor = TILE_FLOOR_GULCH;
+        return;
+
     case BRANCH_WIZLAB:
         flv.wall  = TILE_WALL_NORMAL;
         flv.floor = TILE_FLOOR_NORMAL;

@@ -3066,7 +3066,7 @@ bool perma_mutate(mutation_type which_mut, int how_much, const string &reason)
 
 bool temp_mutate(mutation_type which_mut, const string &reason)
 {
-    return mutate(which_mut, reason, false, false, false, false, MUTCLASS_TEMPORARY);
+    return mutate(which_mut, reason, true, false, false, false, MUTCLASS_TEMPORARY);
 }
 
 bool temp_mutation_wanes()

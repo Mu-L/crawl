@@ -381,6 +381,8 @@ tileidx_t tileidx_feature_base(dungeon_feature_type feat)
         return TILE_DNGN_PORTAL_ICE_CAVE;
     case DNGN_ENTER_VOLCANO:
         return TILE_DNGN_PORTAL_VOLCANO;
+    case DNGN_ENTER_GULCH:
+        return TILE_DNGN_PORTAL_GULCH;
     case DNGN_ENTER_WIZLAB:
         return TILE_DNGN_PORTAL_WIZARD_LAB;
     case DNGN_ENTER_DESOLATION:
@@ -440,6 +442,8 @@ tileidx_t tileidx_feature_base(dungeon_feature_type feat)
         return TILE_DNGN_PORTAL_ICE_CAVE;
     case DNGN_EXIT_VOLCANO:
         return TILE_DNGN_EXIT_VOLCANO;
+    case DNGN_EXIT_GULCH:
+        return TILE_DNGN_EXIT_GULCH;
     case DNGN_EXIT_DESOLATION:
         return TILE_DNGN_EXIT_DESOLATION;
     case DNGN_EXIT_WIZLAB:
@@ -4660,6 +4664,8 @@ tileidx_t tileidx_branch(const branch_type br)
         return TILE_DNGN_PORTAL_ICE_CAVE;
     case BRANCH_VOLCANO:
         return TILE_DNGN_PORTAL_VOLCANO;
+    case BRANCH_GULCH:
+        return TILE_DNGN_PORTAL_GULCH;
     case BRANCH_WIZLAB:
         return TILE_DNGN_PORTAL_WIZARD_LAB_7; /* I like this colour */
     case BRANCH_DESOLATION:

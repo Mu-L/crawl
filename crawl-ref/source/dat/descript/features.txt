@@ -983,6 +983,11 @@ contain the evils sealed therein. Whatever protections this arch once offered
 have finally succumbed to the ravages of time, and a bitter breeze pours forth
 from the distant land beyond.
 %%%%
+A mutagenic drain
+
+A passage leading to a gutter gulch, gradually rusting away. Entering it will
+inflict three temporary mutations upon you, or decompose you if you're undead.
+%%%%
 A magical portal
 
 A portal leading to a wizard's laboratory. It is fading away.
