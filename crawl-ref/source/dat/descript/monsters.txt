@@ -3042,6 +3042,10 @@ spriggan rider
 A spriggan that has tamed a hornet as its mount, and is tasked with protecting
 the spriggan fens and cairns from intruders.
 %%%%
+stack of scrap
+
+A tarnished towering mess of half-assembled constructs and spare broken parts.
+%%%%
 star jelly
 
 A white gelatinous mound that pulses with a strange iridescence. Its body

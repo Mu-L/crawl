@@ -1392,6 +1392,7 @@ static void _monster_die_cloud(const monster& mons, bool real_death)
                 return;
 
             case MONS_PILE_OF_DEBRIS:
+            case MONS_STACK_OF_SCRAP:
                 place_cloud(CLOUD_DUST, mons.pos(), 2 + random2(4), &mons);
                 return;
 
@@ -3191,7 +3192,8 @@ item_def* monster_die(monster& mons, killer_type killer,
                 msg = " collapses into dust.";
             else if (mons.type == MONS_PILLAR_OF_SALT
                     || mons.type == MONS_WITHERED_PLANT
-                    || mons.type == MONS_BRIAR_PATCH)
+                    || mons.type == MONS_BRIAR_PATCH
+                    || mons.type == MONS_STACK_OF_SCRAP)
             {
                 msg = " crumbles away.";
             }

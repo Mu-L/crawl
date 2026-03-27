@@ -1050,6 +1050,7 @@ enum monster_type                      // env.mons[].type
     MONS_BOMBLET,
     MONS_GLOBE_OF_ANNIHILATION,
     MONS_PILE_OF_DEBRIS,
+    MONS_STACK_OF_SCRAP,
     MONS_PILE_OF_FLESH,
     MONS_SHOOTING_STAR,
     MONS_CAUSTIC_SPORANGIUM,
@@ -1411,6 +1412,7 @@ enum monster_type                      // env.mons[].type
     MONS_NASCENT_PLASMODIUM,
     MONS_STAR_JELLY,
     MONS_BURSTSHROOM,
+    MONS_STACK_OF_SCRAP,
 #endif
 
     NUM_MONSTERS,               // used for polymorph

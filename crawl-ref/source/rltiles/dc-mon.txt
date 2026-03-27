@@ -596,6 +596,12 @@ roxanne MONS_ROXANNE
 %sdir mon/statues
 pile_of_debris_00 MONS_PILE_OF_DEBRIS
 pile_of_debris_01
+%weight 10
+stack_of_scrap0 MONS_STACK_OF_SCRAP
+stack_of_scrap1
+%weight 5
+stack_of_scrap2
+%weight 10
 pile_of_flesh0 MONS_PILE_OF_FLESH
 pile_of_flesh1
 pile_of_flesh2

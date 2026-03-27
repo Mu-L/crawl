@@ -372,7 +372,7 @@ function vaults_hard_standard(e, ngen, ft)
   end
   if you.in_branch("Vaults") then
     if not ft then
-      e.ftile('0123456789._^~$%*|defghijkmnFGITUVY+mn{([<})]}> = floor_metal_gold')
+      e.ftile('0123456789._^~$%*|defghijkmnFGISTUVY+mn{([<})]}> = floor_metal_gold')
     else
       e.ftile(ft .. ' = floor_metal_gold')
     end

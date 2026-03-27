@@ -4024,13 +4024,14 @@ ORIENT: float
 DEPTH:  D:2-4
 KMONS:  1 = Ijyb / hobgoblin, hobgoblin
 KMONS:  2 = goblin
+KMONS:  S = stack of scrap
 KFEAT:  F = cache_of_fruit / cache_of_meat / cache_of_baked_goods
-SUBST:  F : F..
+SUBST:  F : F.., S : SS.
 MAP
 xxxxxxxxx
 xF.%1%.Fx
 xG2...2Gx
-x.2...2.x
+x.2SSS2.x
 xc2...2cx
 x.......x
 xc.....cx
@@ -5379,9 +5380,10 @@ ORIENT: float
 : if you.in_branch("Vaults") then
 KMONS:  1 = war gargoyle
 KMONS:  2 = vault sentinel
+KMONS:  S = stack of scrap
 KITEM:  12 = % / * w:4
 NSUBST: - = 3:1 / 2:2 / 2 = 1G / *:G
-SUBST:  @ = ., '" = .
+SUBST:  @ = ., '" = ., G : GGS
 :   vault_metal_statue_setup(_G, "G", "silver statue")
 :   vaults_hard_standard(_G)
 : else
