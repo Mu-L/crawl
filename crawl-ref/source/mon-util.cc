@@ -636,6 +636,7 @@ bool mons_class_is_draconic(monster_type mc)
         case MONS_DRAKE:
         case MONS_DRACONIAN:
         case MONS_WYRMHOLE:
+        case MONS_MONGREL_WURM:
             return true;
         default:
             return false;

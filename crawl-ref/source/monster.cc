@@ -3507,6 +3507,7 @@ int monster::known_chaos(bool check_spells_god) const
         || type == MONS_ABOMINATION_SMALL
         || type == MONS_ABOMINATION_LARGE
         || type == MONS_MUTANT_BEAST
+        || type == MONS_MONGREL_WURM       // Hybrid breed mutants.
         || type == MONS_WRETCHED_STAR
         || type == MONS_MORPHOGENIC_OOZE
         || type == MONS_KOBOLD_FLESHCRAFTER // Mutated tentacles!

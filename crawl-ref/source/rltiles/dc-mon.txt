@@ -842,6 +842,7 @@ rime_drake MONS_RIME_DRAKE
 lindwurm MONS_LINDWURM
 death_drake MONS_DEATH_DRAKE
 wind_drake MONS_WIND_DRAKE
+mongrel_wurm MONS_MONGREL_WURM
 wyrmhole0 MONS_WYRMHOLE
 wyrmhole1
 wyrmhole2

@@ -186,6 +186,7 @@ rime_drake CORPSE_RIME_DRAKE
 lindwurm CORPSE_LINDWURM
 death_drake CORPSE_DEATH_DRAKE
 wind_drake CORPSE_WIND_DRAKE
+mongrel_wurm CORPSE_MONGREL_WURM
 
 ## Merfolk ('m')
 mon/demihumanoids/merfolk/merfolk_water CORPSE_MERFOLK

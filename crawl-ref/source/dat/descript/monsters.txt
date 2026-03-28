@@ -2142,6 +2142,13 @@ the brim with explosives. It can rapidly fill an area with bomblets, and when
 commanded by its creator, will explode them all (and itself) to devastating
 effect.
 %%%%
+mongrel wurm
+
+A serpentine crossbreed, blending traits of lesser dragons and countless other
+creatures that nature never intended to interbreed. Its many stunted limbs
+struggle to propel its grime-coated body, while its oversized scaleless head
+wheezes with the pressure of clashing breath weapons.
+%%%%
 morphogenic ooze
 
 A multihued mire of roiling flesh and fluctuating sludge, striving and failing

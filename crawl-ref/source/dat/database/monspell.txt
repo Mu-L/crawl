@@ -897,6 +897,18 @@ Bolt of Magma molten gargoyle cast
 
 @The_monster@ blasts magma @at@ @target@!
 %%%%
+Harpoon Shot mongrel wurm cast
+
+@The_monster@ hacks up a harpoon shot aimed @at@ @foe@.
+
+@The_monster@ half-collapses as it coughs up a harpoon shot @at@ @foe@.
+%%%%
+Scorch mongrel wurm cast
+
+@The_monster@ nearly chokes as it lobs forward flames.
+
+@The_monster@ expels rasping flames.
+%%%%
 orange crystal statue cast
 
 @The_monster@ glitters.
