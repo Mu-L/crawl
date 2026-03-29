@@ -2698,6 +2698,13 @@ rust devil
 A hideous humanoid figure with rust-spotted metal skin, spreading corrosion
 and decay to all it touches.
 %%%%
+rusted inspector
+
+A slithering metal construct, once built to monitor for mutated entities
+encroaching upon the Vaults and long-since abandoned. While it can still dampen
+most unwanted magic, a lack of proper maintenance has lead to it becoming coated
+with a highly corrosive mystic rust.
+%%%%
 sacred lotus
 
 A large and vivid bloom drifting placidly upon the surface of the water. The

@@ -1271,6 +1271,7 @@ static const map<monster_type, monster_frag> fraggable_monsters = {
     { MONS_HELLFIRE_MORTAR,   { "rock", BROWN } },
     { MONS_STACK_OF_SCRAP,    { "metal", CYAN, frag_damage_type::metal } },
     { MONS_CRAWLING_FLESH_CAGE, { "metal", CYAN, frag_damage_type::metal } },
+    { MONS_RUSTED_INSPECTOR,  { "metal", CYAN, frag_damage_type::metal } },
     { MONS_IRON_ELEMENTAL,    { "metal", CYAN, frag_damage_type::metal } },
     { MONS_IRON_GOLEM,        { "metal", CYAN, frag_damage_type::metal } },
     { MONS_PEACEKEEPER,       { "metal", CYAN, frag_damage_type::metal } },

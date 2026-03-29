@@ -981,6 +981,22 @@ Blink Away revenant cast
 
 __NONE
 %%%%
+rusted inspector cast
+
+@The_monster@ fervently clicks and whirrs while staring @at@ @target@.
+
+@The_monster@ surveys @target@ with malign shimmering curiousity.
+
+@The_monster@ [rumbles|shudders] with under-developed magic as it glares @at@ @target@.
+%%%%
+silent rusted inspector cast
+
+@The_monster@ squirms violently as it stares @at@ @target@.
+
+@The_monster@ surveys @target@ with malign shimmering curiousity.
+
+@The_monster@ shudders with under-developed magic as it glares @at@ @target@.
+%%%%
 Battlecry satyr cast
 
 @The_monster@ plays a rousing melody on @possessive@ pipes!

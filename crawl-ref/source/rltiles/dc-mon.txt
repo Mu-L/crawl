@@ -578,6 +578,7 @@ bomblet MONS_BOMBLET
 walking_alembic MONS_WALKING_ALEMBIC
 iron_golem MONS_IRON_GOLEM
 ushabti MONS_USHABTI
+rusted_inspector MONS_RUSTED_INSPECTOR
 peacekeeper MONS_PEACEKEEPER
 saltling MONS_SALTLING
 undertaker MONS_UNDERTAKER

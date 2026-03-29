@@ -328,6 +328,7 @@ enum monster_type                      // env.mons[].type
     MONS_WOOD_GOLEM,
     MONS_STONE_GOLEM,
 #else
+    MONS_RUSTED_INSPECTOR,
     MONS_SALTLING,
     MONS_PEACEKEEPER,
 #endif
@@ -1415,6 +1416,7 @@ enum monster_type                      // env.mons[].type
     MONS_BURSTSHROOM,
     MONS_STACK_OF_SCRAP,
     MONS_MONGREL_WURM,
+    MONS_RUSTED_INSPECTOR,
 #endif
 
     NUM_MONSTERS,               // used for polymorph

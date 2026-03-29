@@ -1833,6 +1833,12 @@ static const mon_spellbook mspell_list[] =
       }
     },
 
+    { MST_RUSTED_INSPECTOR,
+      {
+        { SPELL_DIMINISH_SPELLS, 55, MON_SPELL_MAGICAL },
+      }
+    },
+
     {  MST_PEACEKEEPER,
       {
        { SPELL_THROW_BARBS, 33, MON_SPELL_NATURAL },
