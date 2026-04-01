@@ -1402,6 +1402,11 @@ Mud Breath spell
 
 <Mud Breath ability>
 %%%%
+Murky Legion spell
+
+Summons some glowmurk ghasts, which spread both magical contamination and
+shallow water in a single attack before disappearing.
+%%%%
 Mutagenic Gaze spell
 
 Causes mutagenic energy to accumulate in a target, eventually reaching levels

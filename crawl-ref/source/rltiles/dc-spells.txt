@@ -281,6 +281,7 @@ miasma_breath MIASMA_BREATH
 might MIGHT
 mindburst MINDBURST
 mourning_wail MOURNING_WAIL
+murky_legion MURKY_LEGION
 mutagenic_gaze MUTAGENIC_GAZE
 noxious_cloud NOXIOUS_CLOUD
 orb_of_electricity ORB_OF_ELECTRICITY

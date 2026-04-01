@@ -5013,6 +5013,7 @@ static string _flavour_base_desc(attack_flavour flavour)
         { AF_VULN,              "reduce willpower" },
         { AF_SHADOWSTAB,        "increased damage when unseen" },
         { AF_DROWN,             "drowning damage" },
+        { AF_CONTAM_WATER,      "spread contamination & shallow water" },
         { AF_CORRODE,           "cause corrosion" },
         { AF_TRAMPLE,           "knock back the defender" },
         { AF_WEAKNESS,          "cause weakness" },

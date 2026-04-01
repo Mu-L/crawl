@@ -1025,6 +1025,20 @@ Sleep satyr cast
 
 @The_monster@ plays a lulling melody on @possessive@ pipes!
 %%%%
+Murky Legion scrapshell chimera cast
+
+@The_monster@ thrashes about, unleashing tainted phantasms!
+
+@The_monster@'s components convulse as foul spirits manifest!
+
+@The_monster@ screeches thrice-fold calling forth its victims' souls!
+%%%%
+silent Murky Legion scrapshell chimera cast
+
+@The_monster@ thrashes silently as it unleashes tainted phantasms!
+
+@The_monster@'s components convulse as foul spirits manifest!
+%%%%
 Injury Mirror screaming refraction cast
 
 @The_monster@ shines with woeful anguish.

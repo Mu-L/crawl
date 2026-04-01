@@ -2142,6 +2142,7 @@ bool flavour_triggers_damageless(attack_flavour flavour)
         || flavour == AF_AIRSTRIKE
         || flavour == AF_SHADOWSTAB
         || flavour == AF_DROWN
+        || flavour == AF_CONTAM_WATER
         || flavour == AF_CORRODE
         || flavour == AF_DIM
         || flavour == AF_BURSTSHROOM;

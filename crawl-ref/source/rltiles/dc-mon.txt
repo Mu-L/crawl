@@ -972,6 +972,7 @@ twing2
 twing3
 twing4
 twing5
+mon/aberrations/scrapshell_chimera MONS_SCRAPSHELL_CHIMERA
 %sdir mon/unique
 %rim 1
 sojobo MONS_SOJOBO
@@ -1375,6 +1376,7 @@ silent_spectre MONS_SILENT_SPECTRE
 lost_soul MONS_LOST_SOUL /*'*'*/
 soul_wisp MONS_SOUL_WISP
 drowned_soul MONS_DROWNED_SOUL
+glowmurk_ghast MONS_GLOWMURK_GHAST
 flayed_ghost MONS_FLAYED_GHOST
 martyred_shade MONS_MARTYRED_SHADE
 %sdir mon/nonliving

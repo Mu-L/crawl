@@ -108,6 +108,7 @@ enum monster_type                      // env.mons[].type
 #endif
 #if TAG_MAJOR_VERSION > 34
     MONS_MUTANT_BEAST,
+    MONS_SCRAPSHELL_CHIMERA,
     MONS_FROG,                  // genus
 #endif
     MONS_BULLFROG,
@@ -530,6 +531,7 @@ enum monster_type                      // env.mons[].type
     MONS_MERFOLK_AVATAR,
 #if TAG_MAJOR_VERSION > 34
     MONS_DROWNED_SOUL,
+    MONS_GLOWMURK_GHAST,
     MONS_SICKLY_MERFOLK_SIREN,
     MONS_MALARIOUS_MERFOLK_AVATAR,
 #endif
@@ -1429,6 +1431,8 @@ enum monster_type                      // env.mons[].type
     MONS_ROAMING_SLUDGEFISH,
     MONS_TELENCEPHALON,
     MONS_SEWAGE_SOVEREIGN,
+    MONS_SCRAPSHELL_CHIMERA,
+    MONS_GLOWMURK_GHAST,
 #endif
 
     NUM_MONSTERS,               // used for polymorph

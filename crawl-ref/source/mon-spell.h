@@ -1176,6 +1176,12 @@ static const mon_spellbook mspell_list[] =
       }
     },
 
+    {  MST_SCRAPSHELL_CHIMERA,
+      {
+       { SPELL_MURKY_LEGION, 54, MON_SPELL_MAGICAL },
+      }
+    },
+
     // ('I') Immotile non-plants - statues, machines.
     {  MST_ICE_STATUE,
       {

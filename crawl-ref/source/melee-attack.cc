@@ -3802,6 +3802,7 @@ static bool _attack_flavour_needs_living_defender(attack_flavour flavour)
 {
     switch (flavour)
     {
+        case AF_CONTAM_WATER:
         case AF_SCARAB:
         case AF_VAMPIRIC:
         case AF_BLINK:
@@ -4207,6 +4208,45 @@ void melee_attack::mons_apply_attack_flavour(attack_flavour flavour)
         // if you got grabbed, interrupt stair climb and passwall
         if (defender->is_player())
             stop_delay(true);
+        break;
+
+    case AF_CONTAM_WATER:
+        {
+        if (attacker->type == MONS_GLOWMURK_GHAST)
+            attacker->as_monster()->suicide(-10);
+
+        int time = random_range(attacker->get_hit_dice() * 4 + 66,
+                                attacker->get_hit_dice() * 4 + 66 * 3 / 2);
+        bool contam = x_chance_in_y(2, 3);
+
+        // Effects are following off the precedent of Irradiate.
+        if (contam)
+        {
+            if (defender->is_player())
+                contaminate_player(random_range(125, 175));
+            else if (defender->can_mutate())
+                defender->malmutate(attacker);
+        }
+
+        if (feat_is_floor(env.grid(attacker->pos()))
+            || env.grid(attacker->pos()) == DNGN_SHALLOW_WATER)
+        {
+            temp_change_terrain(attacker->pos(), DNGN_SHALLOW_WATER, time,
+                                TERRAIN_CHANGE_FLOOD);
+        }
+        if (feat_is_floor(env.grid(defender->pos()))
+            || env.grid(defender->pos()) == DNGN_SHALLOW_WATER)
+        {
+            temp_change_terrain(defender->pos(), DNGN_SHALLOW_WATER, time,
+                                TERRAIN_CHANGE_FLOOD);
+        }
+        simple_monster_message(*attacker->as_monster(),
+                                attacker->type == MONS_GLOWMURK_GHAST
+                                ? contam ? " fades away in a splash of mutagenic energy!"
+                                : " fades away." :
+                                contam ? " sprays mutagenic energy!"
+                                : " fails to spray mutagenic energy.");
+        }
         break;
 
     case AF_FLOOD:

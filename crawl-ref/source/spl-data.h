@@ -2912,6 +2912,17 @@ static const struct spell_desc spelldata[] =
 },
 
 {
+    SPELL_MURKY_LEGION, "Murky Legion",
+    spschool::summoning | spschool::necromancy,
+    spflag::unholy | spflag::chaotic | spflag::monster,
+    6,
+    0,
+    -1, -1,
+    0,
+    TILEG_MURKY_LEGION,
+},
+
+{
     SPELL_PARALYSIS_GAZE, "Paralysis Gaze",
     spschool::hexes,
     spflag::target | spflag::monster,

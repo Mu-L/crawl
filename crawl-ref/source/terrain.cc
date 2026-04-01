@@ -71,19 +71,26 @@ actor* actor_at(const coord_def& c)
     return monster_at(c);
 }
 
+/** Is this feature safe to replace in all circumstances?
+ */
+bool feat_is_floor(dungeon_feature_type feat)
+{
+    return feat == DNGN_FLOOR
+            || feat == DNGN_DECORATIVE_FLOOR
+            || feat_is_fountain(feat)
+            || feat_is_food(feat);
+}
+
 /** Can a malign gateway be placed on this feature?
  */
 bool feat_is_malign_gateway_suitable(dungeon_feature_type feat)
 {
-    return feat == DNGN_FLOOR
-            || feat == DNGN_SHALLOW_WATER
+    return feat == DNGN_SHALLOW_WATER
             || feat == DNGN_DEEP_WATER
             || feat == DNGN_LAVA
             || feat == DNGN_MUD
             || feat == DNGN_TOXIC_BOG
-            || feat == DNGN_DECORATIVE_FLOOR
-            || feat_is_fountain(feat)
-            || feat_is_food(feat);
+            || feat_is_floor(feat);
 }
 
 /** Is this feature a type of wall?

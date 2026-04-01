@@ -1631,6 +1631,13 @@ it travels. If it collides with either a creature or wall, it will explode
 violently - though its creator is protected from the wild destruction unleashed
 as it does so.
 %%%%
+glowmurk ghast
+
+A shuddering, shimmering apparition borne from the drowned dead, repeatedly
+called to this plane by some cruel mystic experiment. It will share its memories
+and experiences of drowning in tainted waters with whatever it first touches,
+then dissipate.
+%%%%
 goblin
 
 A short, impatient and unfriendly humanoid. Goblins first appeared only a few
@@ -2758,6 +2765,14 @@ scorpion
 A loathsome arachnid, armed to the teeth. Its body is covered in a thick
 carapace, its tail is tipped by a venomous sting, and its forelimbs are
 equipped with a pair of sharp grasping claws.
+%%%%
+scrapshell chimera
+
+A living engine of aquatic animal flesh fused with a colossal mass of bewitched
+metal scrap. Such hybrid terrors are perhaps the most successful experiments
+conducted in these tainted waters: its necromantically-attuned shell and a diet
+of furious drowned thieves has granted even this thrashing beast the ability to
+control the sunken souls of its countless victims.
 %%%%
 screaming refraction
 

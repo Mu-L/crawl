@@ -2467,6 +2467,7 @@ static const map<spell_type, summon_cap> summonsdata =
     { SPELL_SHEZAS_DANCE,             { 0, 6 } },
     { SPELL_DIVINE_ARMAMENT,          { 0, 1 } },
     { SPELL_FLASHING_BALESTRA,        { 0, 2 } },
+    { SPELL_MURKY_LEGION,             { 0, 4 } },
     { SPELL_BOLT_OF_FLESH,            { 0, 4 } },
     { SPELL_PHANTOM_BLITZ,            { 0, 2 } },
     { SPELL_SHADOW_PUPPET,            { 3, 3 } },
