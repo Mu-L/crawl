@@ -483,7 +483,8 @@ bool magic_mapping(int map_radius, int proportion, bool suppress_msg,
             // If the player has already seen the square, update map
             // knowledge with the new terrain. Otherwise clear what we had
             // before.
-            if (knowledge.seen())
+            if (knowledge.seen()
+                || env.map_forgotten && (*env.map_forgotten)(pos).seen())
             {
                 knowledge.set_feature(env.grid(pos), env.grid_colours(pos));
                 redraw_view_at(pos);
