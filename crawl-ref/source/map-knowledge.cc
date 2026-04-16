@@ -484,7 +484,10 @@ bool magic_mapping(int map_radius, int proportion, bool suppress_msg,
             // knowledge with the new terrain. Otherwise clear what we had
             // before.
             if (knowledge.seen())
+            {
                 knowledge.set_feature(env.grid(pos), env.grid_colours(pos));
+                redraw_view_at(pos);
+            }
             else
                 knowledge.clear();
         }
