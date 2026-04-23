@@ -647,7 +647,6 @@ void map_lines::apply_grid_overlay(const coord_def &c, bool is_layout)
                 if (colour)
                     floor = tile_dngn_coloured(floor, colour);
                 tile_env.flv(gc).floor = floor;
-                tile_init_flavour(gc);
                 has_floor = true;
             }
 
@@ -661,11 +660,11 @@ void map_lines::apply_grid_overlay(const coord_def &c, bool is_layout)
                 tile_dngn_index(name.c_str(), &rock);
                 if (colour)
                     rock = tile_dngn_coloured(rock, colour);
-                int offset = random2(tile_dngn_count(rock));
-                tile_env.flv(gc).wall = rock + offset;
+                tile_env.flv(gc).wall = rock;
                 has_rock = true;
             }
 
+            bool has_tile = false;
             name = (*overlay)(x, y).tile;
             if (!name.empty() && name != "none")
             {
@@ -684,7 +683,10 @@ void map_lines::apply_grid_overlay(const coord_def &c, bool is_layout)
                     tile_env.flv(gc).wall = feat;
                 else
                     tile_env.flv(gc).feat = feat;
+                has_tile = true;
             }
+            if (has_floor || has_rock || has_tile)
+                tile_init_flavour(gc);
         }
 }
 
