@@ -1838,8 +1838,9 @@ wellspring talisman
 
 A small amphora from which pours a seemingly unending quantity of water.
 Transforms the wearer's flesh into elemental water, allowing them to move flexibly
-and reach to attack from a great distance. From time to time, they can even
-cause the water around them to rise up and drown their enemies.
+and reach to attack from a great distance, though without the precision needed
+to stab from range. From time to time, they can even cause the water around them
+to rise up and drown their enemies.
 
 The malleability of this water even allows them to retain the benefits of their
 physical mutations, but cold attacks can freeze it solid and fire may cause it
