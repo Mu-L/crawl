@@ -9623,12 +9623,12 @@ DEPTH:  D:13-, Elf
 WEIGHT: 3
 ITEM:   damnation no_pickup
 : if you.in_branch("Elf") then
-MONS:   deep elf sorcerer / deep elf high priest, hellion
+MONS:   deep elf sorcerer / deep elf high priest, deep elf master archer
 KFEAT:  a = iron_grate
-NSUBST: D = 2=2 / 1.
+NSUBST: D = 1:2 / * = 1.
 : else  -- D:13-
 MONS:   efreet, hellion
-NSUBST: D = 2 / 1..
+NSUBST: D = 1:2 / * = 1..
 SUBST:  a = c
 : end
 SUBST:  b = bc, c : cv

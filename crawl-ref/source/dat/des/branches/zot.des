@@ -3840,7 +3840,7 @@ SHUFFLE: ])deOG, OGUCD~, GM
 : tile("b = dngn_crystal_" .. wallc)
 : tile("v = dngn_metal_wall_" .. wallc)
 : tile("c = dngn_stone_wall_" .. wallc)
-: ftile(".`123409deO%CDTG~+ = floor_rough_" .. floorc)
+: ftile(".`^123409deO%CDTG~+ = floor_rough_" .. floorc)
 : vault_granite_statue_setup(_G, "G", "scintillating statue")
 : vault_metal_statue_setup(_G, "M", "enigmatic dynamo")
 MAP
