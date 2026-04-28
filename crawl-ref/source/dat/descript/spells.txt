@@ -183,8 +183,8 @@ spell power.
 %%%%
 Blinkbolt spell
 
-Transforms the caster into a lightning bolt, and translocates the caster to
-the bolt's destination.
+Transforms the caster into a penetrating lightning bolt, and translocates the
+caster to the bolt's destination.
 %%%%
 Bolt of Antimagic spell
 
@@ -197,7 +197,8 @@ Fires a penetrating bolt of frost.
 %%%%
 Bolt of Devastation spell
 
-Fires a bolt of grief and heartache that cuts its victims' willpower in half.
+Fires a penetrating bolt of grief and heartache that cuts its victims'
+willpower in half.
 %%%%
 Bolt of Draining spell
 
@@ -210,13 +211,13 @@ Fires a penetrating bolt of flames.
 %%%%
 Bolt of Flesh spell
 
-Fires a barrage of conjured flesh, which will briefly remain as a pile on the
-ground at the end of its path.
+Fires a penetrating barrage of conjured flesh, which will briefly remain as a
+pile on the ground at the end of its path.
 %%%%
 Bolt of Light spell
 
-Fires a ray of searing light, which may blind any living, demonic, or holy
-creature it strikes.
+Fires a pentrating ray of searing light, which may blind any living, demonic,
+or holy creature it strikes.
 %%%%
 Bolt of Magma spell
 
@@ -594,7 +595,7 @@ will not avoid what fate has in store for you.
 %%%%
 Doom Bolt spell
 
-Fires a bolt of accursed malice which inflicts Doom.
+Fires a penetrating bolt of accursed malice which inflicts Doom.
 %%%%
 Oblivion Howl spell
 
@@ -637,7 +638,7 @@ Recalls woodland creatures from elsewhere on the same level.
 %%%%
 Electrical Bolt spell
 
-Throws a bolt of electricity at the target, with high accuracy.
+Throws a penetrating bolt of electricity at the target, with high accuracy.
 %%%%
 Enfeeble spell
 
@@ -1214,8 +1215,8 @@ Beckons the target forward, attempting to place them adjacent to the caster.
 %%%%
 Lightning Bolt spell
 
-Fires a mighty bolt of lightning. Its damage bypasses half of defenders'
-armour, and it can be bounced off walls to hit targets twice.
+Fires a mighty penetrating bolt of lightning. Its damage bypasses half of
+defenders' armour, and it can be bounced off walls to hit targets twice.
 %%%%
 Magic Dart spell
 
@@ -1666,8 +1667,8 @@ put to rest for good.
 %%%%
 Quicksilver Bolt spell
 
-Fires a bolt of dispelling energy at a targeted creature, possibly removing
-some of its enchantments.
+Fires a penetrating bolt of dispelling energy at a targeted creature, possibly
+removing some of its enchantments.
 %%%%
 Ravenous Swarm spell
 
@@ -2318,7 +2319,7 @@ aversion to drinking potions.
 %%%%
 Thunderbolt spell
 
-Creates an arc of electricity.
+Creates a penetrating arc of electricity.
 %%%%
 Trog's Hand spell
 
