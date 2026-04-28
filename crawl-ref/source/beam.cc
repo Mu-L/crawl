@@ -4137,7 +4137,7 @@ static const vector<pie_effect> pie_effects = {
                 simple_monster_message(*mons,
                         " looks more vulnerable to fire.");
                 mons->add_ench(mon_enchant(ENCH_FIRE_VULN, beam.agent(),
-                                           15 + random2(11) * BASELINE_DELAY));
+                                           (15 + random2(11)) * BASELINE_DELAY));
             }
             else
             {
