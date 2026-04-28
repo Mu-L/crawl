@@ -1689,7 +1689,7 @@ monster_type pick_local_zombifiable_monster(level_id place,
         // Vaults draugr are later enough they can get a little push-up.
         place.depth += random_range(1, 3);
     }
-    else
+    else if (cs != MONS_DRAUGR || place.branch == BRANCH_CRYPT)
     {
         // Zombies tend to be weaker than their normal counterparts;
         // thus, make them OOD proportional to the current dungeon depth.
