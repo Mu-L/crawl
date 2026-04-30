@@ -689,6 +689,13 @@ FOUNTAIN(DNGN_DECORATIVE_FLOOR, "decorative floor", "decorative_floor", DARKGREY
 FOUNTAIN(DNGN_RUNELIGHT, "runelight", "runelight", ETC_DISJUNCTION),
 
 {
+    DNGN_PURIFIED_MUTATION_CATALYST, "purified mutation catalyst", "purified_mutation_catalyst",
+    DCHAR_ARCH, NUM_DCHAR_TYPES,
+    COLOUR_AND_MAP(ETC_MAGIC),
+    FFT_NOTABLE, MF_FEATURE,
+},
+
+{
     DNGN_CACHE_OF_BAKED_GOODS, "cache of baked goods", "cache_of_baked_goods",
     DCHAR_ITEM_SKELETON, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(YELLOW),

@@ -559,6 +559,8 @@ tileidx_t tileidx_feature_base(dungeon_feature_type feat)
         return TILE_DNGN_SPIKE_LAUNCHER;
     case DNGN_FRIGID_WALL:
         return TILE_DNGN_WALL_FRIGID;
+    case DNGN_PURIFIED_MUTATION_CATALYST:
+        return TILE_DNGN_PURIFIED_MUTATION_CATALYST;
     default:
         return TILE_DNGN_ERROR;
     }

@@ -99,6 +99,8 @@ end
 
 function gulch_setup(e, main_vault)
   e.kfeat("< = exit_gulch")
+  e.kfeat("} = purified_mutation_catalyst")
+  decorative_floor(e, ']', "empty mutation catalyst")
   if main_vault then
     e.place("Gulch")
     e.tags("no_monster_gen no_item_gen no_pool_fixup")
@@ -117,11 +119,12 @@ end
 --  * Two top-tier venom-branded weapons / good_item hand cannons
 --  * Two Alchemy, Hexes, or Forgecraft magic-enhancing items
 --  * A rPois / rCorr / prior schools / flying piece of armour / jewellery
---  * A random tier 3 or 4 talisman randart with rPois / rCorr
+--  * Two random tier 3 or 4 talisman randarts with rPois / rCorr
 -- To fit both the trash themes and to help people who didn't bring in
 -- flaming weapons for the ~5% of encountering slymdra, there's also a bunch
 -- of damaged ego weapons, including flaming ones available via cross-training
--- for all characters.
+-- for all characters. Purified mutation catalysts- single use good mutation
+-- features- are set up in gulch_setup instead.
 function gulch_loot(e, item_nsubst, potion_count)
   local weapon = {"quick blade w:6", "great mace w:4", "eveningstar w:6",
                   "double sword w:5", "triple sword w:5", "broad axe w:4",
@@ -139,10 +142,12 @@ function gulch_loot(e, item_nsubst, potion_count)
   local res_c = "ego:corrosion_resistance good_item"
   local prop_p = "randart artprops:rPois"
   local prop_c = "randart artprops:rCorr"
-  local def = { { i = "cloak " .. res_p, w = 8 }, { i = "cloak " .. res_c, w = 12 },
+  local def = { { i = "cloak " .. res_p, w = 6 }, { i = "cloak " .. prop_p, w = 2 },
+                { i = "cloak " .. res_c, w = 10 }, { i = "cloak " .. prop_c, w = 2 },
                 { i = "pair of boots ego:flying good_item, " ..
                       "barding ego:flying good_item", w = 10 },
-                { i = "kite shield " .. res_c, w = 10 },
+                { i = "kite shield " .. res_c, w = 8 },
+                { i = "kite shield " .. prop_c, w = 2 },
                 { i = "scale mail ego:resonance good_item", w = 4 },
                 { i = "chain mail ego:resonance good_item", w = 6 },
                 { i = "any ring " .. prop_p, w = 8 },
@@ -153,7 +158,11 @@ function gulch_loot(e, item_nsubst, potion_count)
   e.kitem("e = staff of alchemy randart artprops:Hexes w:5 / " ..
           "staff of alchemy randart artprops:Forge w:5 / " ..
           "randbook disc:" .. schools1 .. " disc2:" .. schools2 ..
-          "splevels:33 numspells:5 / orb randart artprops:" .. orbprop .. " / " ..
+          "splevels:33 numspells:5 / " ..
+          "orb ego:attunement randart artprops:" .. orbprop .. " w:3 / " ..
+          "orb ego:stardust randart artprops:" .. orbprop .. " w:3 / " ..
+          "orb ego:guile randart artprops:" .. orbprop .. " w:2 / " ..
+          "orb ego:glass randart artprops:" .. orbprop .. " w:2 / " ..
           "manual of alchemy w:5 / manual of forgecraft w:5")
   e.kitem("f = " .. util.random_weighted_from("w", def).i)
   e.kitem("g = maw talisman w:8 " .. prop_p .. " / maw talisman w:12 " .. prop_c .. " / " ..
@@ -174,8 +183,8 @@ function gulch_loot(e, item_nsubst, potion_count)
               "damaged rapier ego:freezing pre_id no_pickup / " ..
               "damaged dire flail ego:freezing pre_id no_pickup")
   e.kitem("$ = $ no_pickup")
-  e.kitem("% = any potion w:12 / potion of mutation pre_id q:1 w:1")
-  e.nsubst(item_nsubst .. " = 2:d / 2:e / 1:f / 1:g / *:|")
+  e.kitem("% = any potion w:12 / any potion q:2 w:4")
+  e.nsubst(item_nsubst .. " = 2:d / 2:e / 1:f / 2:g / *:|")
   e.nsubst("i = 1:h / 1:i / 1:j / 2 = hij / *:k")
   e.nsubst("$ = " .. potion_count - 1 .. " = %$$ / " .. potion_count.. ":% / *:$")
 end
@@ -516,8 +525,8 @@ ENDMAP
 #    in the subvault definitions and pass the subvault glyphs into that function
 #    to properly distribute those rewards- refer to how it's done in layouts
 #    like gulch_chambers_river, gulch_winding_coils, and gulch_divide.
-#  * With unique tiles for each, a basic wall progression from rock to stone
-#    to bits of metal from start to finish can easily look nice.
+#  * With unique tiles for each, some simple wall progression between rock and
+#    stone and (bits of metal) from start to finish can easily look nice.
 #  * The current gulch_boss_theme_sets(_G) set-up uses ? and ' to place
 #    terrain features, with ? using mould patches or stacks of scrap as
 #    traversible blocking features and ' rarely being used for deep water that
@@ -554,8 +563,8 @@ MAP
      cx.1.'?..-CCCCCCCCCCCCCCCCCCCCC-..?'.1.xc
      cx......WcCCCCCCCCCCCCCCCCCCCCCcW......xc
     cc.?'.....-CCCCCCCCCCCCCCCCCCCCC-.....'?.cc
-   cc..'?.....cCCCCCCCCCCCCCCCCCCCCCc.....?'..cc
-  cc........v$cCCCCCCCCCCCCCCCCCCCCCc$v........cc
+   cc..'?....$cCCCCCCCCCCCCCCCCCCCCCc$....?'..cc
+  cc........v|cCCCCCCCCCCCCCCCCCCCCCc|v........cc
   c..W.W.W..$|ccccccccccccccccccccccc|$..W.W.W..c
 cccc-c-c-c-ccccvvvvvvvvvvvvvvvvvvvvvcccc-c-D-c-cccc
 ccBBBBBBBBBBBcvw?'..Z....Y....Z..'?wvcDDDDDDDDDDDcc
@@ -573,7 +582,7 @@ ccBBBBBBBBBBBcv...'v'.1.vvv.1.'v'...vcDDDDDDDDDDDcc
 ccBBBBBBBBBBBcv....v$..0$v$0..$v....vcDDDDDDDDDDDcc
 ccBBBBBBBBBBBcv..vvvvv0.6v6.0vvvvv..vcDDDDDDDDDDDcc
 ccBBBBBBBBBBBcv..z...vv||6||vv...z..vcDDDDDDDDDDDcc
-ccBBBBBBBBBBBcv.......vv|.|vv.......vcDDDDDDDDDDDcc
+ccBBBBBBBBBBBcv.......vv|}|vv.......vcDDDDDDDDDDDcc
 ccBBBBBBBBBBBcv........vvvvv..yy....vcDDDDDDDDDDDcc
 ccBBBBBBBBBBBcv........v...v..y.....vcDDDDDDDDDDDcc
 ccBBBBBBBBBBBcv'.......v...v.......'vcDDDDDDDDDDDcc
@@ -582,9 +591,9 @@ ccBBBBBBBBBBBcvw?'..Z....Y....Z..'?wvcDDDDDDDDDDDcc
 cccc+c+B+c+ccccvvvv+v+v+vvvvvvvvvvvvcccc+c+c+c+cccc
 cc...W.W.W....xxxxxxPxPxccccxxxxxxxxx....W.W.W...cc
 cc............~~~~~~~.~~ccc~~~~~~~~~~............cc
-cc..v..............3.2<.ccc.A.W...1.3.........v..cc
+cci.v..............3.2<.ccc.A.W...1.3.........v.icc
 cc~'..............2.1...ccc..W.<...2...........'~cc
-ccx~ii~i~i~i~i~~~~~~~~~~ccc~~~~~~~~~~i~i~i~i~ii~xcc
+ccx~|i~i~i~i~i~~~~~~~~~~ccc~~~~~~~~~~i~i~i~i~i|~xcc
 ccxxxxxxxxxxxxxxxxxxxxxcccccxxxxxxxxxxxxxxxxxxxxxcc
 ccccccccccccccccccccccccccccccccccccccccccccccccccc
 ENDMAP
@@ -786,11 +795,11 @@ vvvvvvvvvvvvvxx    x.2cvvvvc3.x    xxvvvvvvvvvvvvv
 vvvvvvvvvvvvvxx    +.2cvvvvc2.+    xxvvvvvvvvvvvvv
 vvvvvvvvvvvvvxx    +.$cvvvvc$.+    xxvvvvvvvvvvvvv
 vvvvvvvvvvvvvxx    xcccvvvvcccx    xxccccccccvvvvv
-vvvvvvvvcccccxx    x.'cvvvvc'.x    xx~~.~~.03cvvvv
+vvvvvvvvcccccxx    x.'cvvvvc'.x    xx~~.~~|03cvvvv
 vvvvvvvvc$$$cxx    +.1cvvvvc$.+    xx.....060cvvvv
-vvvvvvvccc+ccxx    +.$cvvvvc0.+    .x..c$060.cvvvv
+vvvvvvvccc+ccxx    +.$cvvvvc0.+    .x..c$060|cvvvv
 vvvvvccc04...x.    x.'cvvvvc'.x    .+..c$|0.~cvvvv
-vvvvvc$c5'?..+.    xcccvvvvcccx    .+..c|$$.~cvvvv
+vvvvvc$c5'?..+.    xcccvvvvcccx    .+..c}$$.~cvvvv
 vvvvvc|+.?~..+.    +.$cvvvvc$.+    .+..cccc..cvvvv
 vvvvvc$c...3.+.    +.2cvvvvc2.+    .x.?.....~cvvvv
 vvvvvccc.....x.    x.2cvvvvc2.x    xx?......~cvvvv
@@ -807,9 +816,9 @@ vvvvc~.....?.xx    +.2cvvvvc2.+    .+.3...c$cvvvvv
 vvvvc..cccc..+.    +.$cvvvvc$.+    .+..~?.+|cvvvvv
 vvvvc~.$$|c..+.    xcccvvvvcccx    .+..?'5c$cvvvvv
 vvvvc~.0|$c..+.    x.'cvvvvc'.x    .x...40cccvvvvv
-vvvvc.040$c.'x.    +.0cvvvvc$.+    xxcc+cccvvvvvvv
+vvvvc|040$c.'x.    +.0cvvvvc$.+    xxcc+cccvvvvvvv
 vvvvc130.....xx    +.$cvvvvc1.+    xxc$$$cvvvvvvvv
-vvvvc21.~~.~~xx    x.'cvvvvc'.x    xxcccccvvvvvvvv
+vvvvc21|~~.~~xx    x.'cvvvvc'.x    xxcccccvvvvvvvv
 vvvvvccccccccxx    xcccvvvvcccx    xxvvvvvvvvvvvvv
 vvvvvvvvvvvvvxx    +.$cvvvvc$.+    xxvvvvvvvvvvvvv
 vvvvvvvvvvvvvxx    +.2cvvvvc2.+    xxvvvvvvvvvvvvv
@@ -826,8 +835,8 @@ vvvvvvvvvvvvvxx    x....'....cx    xxvvvvvvvvvvvvv
 vvvvvvvvvvvvvxx    +.c..?..c3cx    xxcvvvvvvvvvvvv
 vvvvcccccccccxx    +.cc$'$cc4cx    xxccvvvvvvvvvvv
 vvvvccc$3...'xx    +..cc?cc$2cx    xx$ccvvvvvvvvvv
-vvvvcc|c2.c..x.    x.'.ccc|3.vx    xx'.ccvvvvvvvvv
-vvvvc$cc5c...+.    x.'.ccc|3.vx    .x?c$ccvvvvvvvv
+vvvvcc|c2.c..x.    x.'.ccc|3|vx    xx'.ccvvvvvvvvv
+vvvvc$cc5c...+.    x.'.ccc|3|vx    .x?c$ccvvvvvvvv
 vvvvc324v....+.    +..cc?cc$2cx    .+...1ccvvvvvvv
 vvvvc..c.c...x.    +.cc$'$cc5cx    .+..2v1ccvvvvvv
 vvvvc.c.....'xx    +.c..?..c3cx    .x..c2.$ccvvvvv
@@ -842,16 +851,16 @@ vv                                              vv
 vxxxxxxx....xxx    xxxxxxxxxxxx    xxxxx....xxxxxv
 vxxxxxxxx++xxxx    xxxxxxxxxxxx    xxxxxx++xxxxxxv
 vvvcc$.?....?xx    xccccccccccx    xxxx'....'cvvvv
-vvvvcc.c...c.xx    xc....'....x    .xx?......cvvvv
+vvvvcc.c...c.xx    xc}...'....x    .xx?......cvvvv
 vvvvvcc..2c..x.    xc0c..?..c.+    .x'.....c.cvvvv
 vvvvvvcc1v2..+.    xc6cc$'.cc.+    .x...c.c..cvvvv
 vvvvvvvcc1...+.    xc0$cc?cc..+    .+....v523cvvvv
-vvvvvvvvcc.c?x.    xv.0|ccc.'.x    .+...c4cc$cvvvv
-vvvvvvvvvcc..xx    xv.0|ccc.'.x    xx..c.2c|ccvvvv
+vvvvvvvvcc.c?x.    xv|0|ccc.'.x    .+...c4cc$cvvvv
+vvvvvvvvvcc..xx    xv|0|ccc.'.x    xx..c.2c|ccvvvv
 vvvvvvvvvvcc$xx    xc0$cc?cc..+    xx'...3$cccvvvv
 vvvvvvvvvvvccxx    xc6cc$'.cc.+    xxcccccccccvvvv
 vvvvvvvvvvvvcxx    xc0c..?..c.+    xxvvvvvvvvvvvvv
-vvvvvvvvvvvvvxx    xc....'....x    xxvvvvvvvvvvvvv
+vvvvvvvvvvvvvxx    xc]...'....x    xxvvvvvvvvvvvvv
 vvvvvvvvvvvvvxx    xccccccccccx    xxvvvvvvvvvvvvv
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 ENDMAP
@@ -865,10 +874,10 @@ vvvvvvvvvvc..x.    +...cccc...+    xxvccccvvvvvvvv
 vvvvvvvvvvc~.+.    +..~.3'.~..+    xxvc$$cvvvvvvvv
 vvvvvvvvvvc..+.    +....'0....+    xccc++ccvvvvvvv
 vvvvvvvvvvc1.x.    xcc..2?..ccx    xc...22ccvvvvvv
-vvvvvvvvvcc++xx    xvc+c?3c+cvx    xc~...34vcvvvvv
+vvvvvvvvvcc++xx    xvc+c?3c+cvx    xc~..|34vcvvvvv
 vvvvvvvccc...xx    xvc$cccc$cvx    xcc++c|.5ccvvvv
 vvvvvvvc$.~..xx    xvcccvvcccvx    xc...cc|32cccvv
-vvvvvvcc.2.4.xx    xvvvvvvvvvvx    xc...'cc.2+$cvv
+vvvvvvcc.2.4.xx    xvvvvvvvvvvx    xc...'cc|2+$cvv
 vcccccc.~.2$cxx    xvvvvvvvvvvx    xc.??..+..+$cvv
 vc.~.1+..3$|cxx    xvvvvvvvvvvx    xc'1...+..cccvv
 vc'...+...cccxx    xvvvvvvvvvvx    xc.....c~.cvvvv
@@ -883,10 +892,10 @@ vvxxxxxxx+++xxx    xxxxxxxxxxxx    xxxxxxxxxx++xxv
 vvvvc..c.....cx    xvvvvvvvvvvx    xxccc...+...'cv
 vvccc..+...1'cx    xvvvvvvvvvvx    xxc|.3..+1.~.cv
 vvc$+..+..??.cx    xvvvvvvvvvvx    xxc.2.~.ccccccv
-vvc$+0.cc'...cx    xvvvvvvvvvvx    xx.4.2$ccvvvvvv
+vvc$+0|cc'...cx    xvvvvvvvvvvx    xx.4.2$ccvvvvvv
 vvccc00|cc...cx    xvcccvvcccvx    xx..~$$cvvvvvvv
-vvvvcc6.|c++ccx    xvc$cccc$cvx    xx...cccvvvvvvv
-vvvvvcv60....cx    xvc+c2?c+cvx    xx++ccvvvvvvvvv
+vvvvcc6}|c++ccx    xvc$cccc$cvx    xx...cccvvvvvvv
+vvvvvcv60|...cx    xvc+c2?c+cvx    xx++ccvvvvvvvvv
 vvvvvvcc00...cx    xcc..?3..ccx    .x.1cvvvvvvvvvv
 vvvvvvvcc++cccx    +....0'....+    .+..cvvvvvvvvvv
 vvvvvvvvc$$cvxx    +..~.'3.~..+    .+.~cvvvvvvvvvv
@@ -903,14 +912,14 @@ MAP
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 vvvvvvvccccccxx    xcccccvvvvvx    xcvvvvvvvvvvvvv
 vvvvvvcc'.cc2x.    +...'cccccvx    xccccccvvvvvvvv
-vvvvvcc3.PP..+.    +.~?.c..$cvx    xc$$.|cvvvvvvvv
+vvvvvcc3.PP..+.    +.~?.c..$cvx    xc$$||cvvvvvvvv
 vvvvcc4..c...+.    +.?~.c.2.cvx    xcc++ccccccvvvv
-vvvcc5..cccccxx    x'...+..3cvx    xc....'00|cvvvv
-vvcc0..QQQ...+.    xccc++.~.cvx    xc....0c$0cvvvv
-vcc3..Rc.cc..+.    xvc......cvx    xx'..6ccc0cvvvv
-vc'..cR...cc1x.    xvc.~....ccx    .x...ccc0'cccvv
-vc.SccRc...ccxx    xvc2..++cccx    .+..ccc6..c|cvv
-vccS.c.cc...ccx    xvc.0.+....x    .+..?c....+.cvv
+vvvcc5..cccccxx    x'...+..3cvx    xc$...'42|cvvvv
+vvcc0..QQQ...+.    xccc++.~.cvx    xc....3c$5cvvvv
+vcc3..Rc.cc..+.    xvc......cvx    xx'..2ccc4cvvvv
+vc'..cR...cc1x.    xvc.~....ccx    .x...ccc3'cccvv
+vc.SccRc...ccxx    xvc2..++cccx    .+..ccc2..c|cvv
+vccS.c.cc...ccx    xvc.0.+....x    .+..?c....+|cvv
 vcc..c..cc.?$cx    xvc$..c.~?.+    .+.c......+$cvv
 vc2..c..1cc$|cx    xvccccc.?~.+    .x.....'..c$cvv
 vxx++x++xxccccx    xvvvvvc....+    xxx+++xxccccccv
@@ -923,14 +932,14 @@ vxxxxxxx.....xx    xxxxxxxxxxxx    xxxxxx...x...xv
 vccccccxx+++xxx    +....cvvvvvx    xccccxx++x++xxv
 vvc$c..'.....x.    +.~?.cccccvx    xc|$cc1..c..2cv
 vvc$+......c.+.    +.?~.c..$cvx    xc$?.cc..c..ccv
-vvc.+....c?..+.    x....+.0.cvx    xcc...cc.c.Sccv
+vvc|+....c?..+.    x....+.0.cvx    xcc...cc.c.Sccv
 vvc|c..6ccc..+.    xccc++..2cvx    xxcc...cRccS.cv
 vvccc'0ccc...x.    xcc....~.cvx    .x1cc...Rc..'cv
 vvvvc0ccc6..'xx    xvc......cvx    .+..cc.cR..3ccv
-vvvvc0$c0....cx    xvc.~.++cccx    .+...QQQ..0ccvv
-vvvvc|00'....cx    xvc3..+...'x    xxccccc..5ccvvv
+vvvvc0}c0....cx    xvc.~.++cccx    .+...QQQ..0ccvv
+vvvvc|00'...$cx    xvc3..+...'x    xxccccc..5ccvvv
 vvvvcccccc++ccx    xvc.2.c.~?.+    .+...c..4ccvvvv
-vvvvvvvvc|.$$cx    xvc$..c.?~.+    .+..PP.3ccvvvvv
+vvvvvvvvc||$$cx    xvc$..c.?~.+    .+..PP.3ccvvvvv
 vvvvvvvvccccccx    xvccccc'...+    .x2cc.'ccvvvvvv
 vvvvvvvvvvvvvcx    xvvvvvcccccx    xxccccccvvvvvvv
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
@@ -1032,7 +1041,7 @@ c.xxxx.2.x'.....c
 c.....1..x??xxx'c
 c.1..2..Wx'.y...ccvvvvvvvvvvvvvvvvvvvvvvvvvvv
 c......W3x..y...'c    x$$xx$$x         vvvvvv
-c..xxxxxxx0......c    x..xx..x         xvvvvv
+c..xxxxxxx0......c    x..xx.|x         xvvvvv
 c....'?'.0.......c    +..2'..+         xvvvvv
 c..3..?....?...c+c    +..'3..+         xvvvvv
 cx....xyy...c++c      xxxxxxxx         xxxxvv
@@ -1050,7 +1059,7 @@ cccccccc'..+                                v
        vx$..+                          +..$xv
        vxxx2x                          x4xxxv
        vxxx3x                          x5xxxv
-       vx$..+                          +..|xv
+       vx$|.+                          +..|xv
        vxx'.+                          +..xxv
        vxxxxx                          xxxxxv
        v                                    v
@@ -1061,19 +1070,19 @@ cccccccc'..+                                v
        v                                c..'vvvvvvvv
        v                               cc...?'...$|v
        v                               +....?..x.|$v
-       v                               +....x..x...v
+       v                               +....x..x..|v
        vvxxxx         xxxxxxxx      c++c....x.'xxx.v
        vvvvvx         +..4'..+    ccc.......x..'...v
        vvvvvx         +..'5..+    c........2x......v
        vvvvvx         x..xx..x    c.......1.x..xxx.v
        vvvvvv         x$$xx|$x    c'.....2..x..z..3v
        vvvvvvvvvvvvvvvvvvvvvvvvvvvvv??xxxxxxx..z...v
-                                   v'..............v
+                                   v'........}.....v
                                    v...'......xxxx0v
                                    v.xxx'.xzz.x6'0.v
                                    v...x..x...x'6.$v
                                    v$|.x..x...x0.6|v
-                                   v|$.....3..0.$|$v
+                                   v|$|....3..0.$|$v
                                    vvvvvvvvvvvvvvvvv
 ENDMAP
 
@@ -1091,7 +1100,7 @@ c<....xx...x?...c
 c.x...xx...?x?..ccvvvvvvvvvvvvvvvvvvvvvvvvvvv
 c1.x.1..x.'.?x..0c    x|$...xx         x..$xv
 c.2.x....x....x..c    x$.x4x.x         +.2x$v
-c....x..'.xx...x.c    x.x5x..x         +.x3.v
+c....x..'.xx...x.c    x.x5x..x         +.x3|v
 c...x.x?..xx'..c+c    xx.....x         xx...v
 cW..x.?x?..'ccc+      xxx++xxx         xx++xv
 cy...3.?x...c                               v
@@ -1117,20 +1126,20 @@ cccccccc0..+                                v
        v                                    v
        v                                ccccc
        v                                c|||cccccccc
-       v                               ccx$$..x.zz.c
+       v                               ccx$$|.x.zz.c
        v                               +.xx$..+....c
        v                               +..xx..+...6c
        vx++xx         xxx++xxx      c++c...xx.x..0.c
        v...xx         x.....xx    ccc...z...xxx.0..c
        v.2x.+         x..x4x.x    c|xx......2xx.0.~c
        v$x3.+         x.x5x.$x    c|$xx......3x...~c
-       vx$..x         xx...$|x    c|$$xx......xx...c
-       vvvvvvvvvvvvvvvvvvvvvvvvvvvcc...xx2..?...x..c
+       vx$|.x         xx...$|x    c|$$xx......xx...c
+       vvvvvvvvvvvvvvvvvvvvvvvvvvvcc|..xx2..?...x..c
                                    c....xx3..?...x.c
                                    cx++xxxxx......xc
                                    c.......x......0c
                                    cz...00..x......c
-                                   cz..0.....x.....c
+                                   cz..0.....x...}.c
                                    c..6..~~...x0..6c
                                    ccccccccccccccccc
 ENDMAP
@@ -1147,8 +1156,8 @@ c..xx~...xx.3..~c
 c.yx~.....x.....c
 c..x..1...xxx...c
 c..1....'??.xxx?ccvvvvvvvvvvvvvvvvvvvvvvvvvvv
-c......''.......'c    x$xxxx$x         xvvvvv
-c2xxx..?...x0....c    +.4xx5.+         xxxvvv
+c......''.......'c    x$xxxx|x         xvvvvv
+c2xxx..?...x0....c    +.4xx5$+         xxxvvv
 c...xxx?..xxx....c    +..''..+         +$vxvv
 c.....x..xx....+cc    x......x         +?$xvv
 c~..3.xx.0x.ccc+      xxx++xxx         x++xxv
@@ -1166,7 +1175,7 @@ cccccccc'..c                                v
        v.1..x                          x.1..v
        v$xxxx                          x$xxxv
        vxxx$x                          xxxx|v
-       v.23.x                          x.23.v
+       v|23.x                          x.23.v
        v...'x                          x...'v
        vx++xx                          xx++xv
        v                                    v
@@ -1180,11 +1189,11 @@ cccccccc'..c                                v
        v                               +..xxxx....zc
        vxx++x         xxx++xxx      c++c..2x|xx~...c
        vvx$?+         x......x    ccc......x|$xx...c
-       vvxv$+         +..''..+    c......1.x.~$xx..c
+       vvxv$+         +..''..+    c......1.x|~$xx..c
        vvvxxx         +.4xx5.+    c.''x2..xx$..|x..c
        vvvvvx         x$xxxx|x    c??xxxxxxxx++xx..c
-       vvvvvvvvvvvvvvvvvvvvvvvvvvvcc.3x||.$xx...x..c
-                                   c..xx$~.+...0..0c
+       vvvvvvvvvvvvvvvvvvvvvvvvvvvcc.3x|||$xx...x..c
+                                   c..xx$~.+.}.0..0c
                                    c...xx$.+..6.0..c
                                    c...~xx|x.0.6.0.c
                                    cz....xxxx.0.6..c
@@ -1206,8 +1215,8 @@ c?yxxxx'?.xxxxx0c
 c..x.xxx'xxx..y.c
 c..x.'xxxxx.w...ccvvvvvvvvvvvvvvvvvvvvvvvvvvv
 c..1.?'xxx.w....'c    x$x|'x$x         xxvvvv
-c.....xxxxx'.....c    +.2x.4.+         +xxxxv
-c.y..xxx.x?x.....c    +...x..+         +??$xv
+c.....xxxxx'.....c    +.2x$4.+         +xxxxv
+c.y..xxx.x?x.....c    +...x..+         +??|xv
 c2xxxxx.w'x?x'.+cc    xx....xx         x1$xxv
 c...3x.w...xccc+      ?xx++xx?         xxxxxv
 c....x.....'c                               v
@@ -1238,11 +1247,11 @@ cccccccc'..c                                v
        v                               c.?...xx..~.c
        vxxxxx         ?xx++xx?      cccc'....x...W.c
        vxx$1x         xx....xx    c++..'2x1..xw.xx.c
-       vx$??+         +..x...+    c...?.xxx.xxxxx..c
-       vxxxx+         +.3.x5.+    c.?...1xxxx$|.3..c
-       vvvvxx         x$x'|x$x    c.......xx$..0...c
-       vvvvvvvvvvvvvvvvvvvvvvvvvvvcc'....xx$.x.xx..c
-                                   c??xxxx$.x|x|x..c
+       vx|??+         +..x...+    c...?.xxx.xxxxx..c
+       vxxxx+         +.3$x5.+    c.?...1xxxx$|.3..c
+       vvvvxx         x$x'|x$x    c.......xx$|.0...c
+       vvvvvvvvvvvvvvvvvvvvvvvvvvvcc'....xx$}x.xx..c
+                                   c??xxxx$|x|x|x..c
                                    c.xx.wx|..x|xx..c
                                    c.W...x.0x|xx.0.c
                                    c.~..xx3.xxx.0.6c
@@ -1265,7 +1274,7 @@ SUBVAULT: C : gulch_river_chamber
 : gulch_setup(_G, true)
 MAP
 xxxxxxxxxxccccccccccccccccccccccccccccccccccccccvvvvvvvvvv
-x....w..AxcBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCCcv|||w....v
+x....w..AxcBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCCcv|||w.||}v
 x~..xWW..xcBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCCcv|$WWx..~v
 x.<..xWWWxcBBBBBBBBBBBBBBBBB.CCCCCCCCCCCCCCCCCCcvWWWx..<.v
 x.....x..xcBBBBBBBBBBBBBBBBB'CCCCCCCCCCCCCCCCCCcv..x.....v
@@ -1298,7 +1307,7 @@ x..WW..WWWBBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCC+WWW..WW..v
 x...WWWW..BBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCC+..WWWW...v
 x.........BBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCC+.........v
 x.........BBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCC+.........v
-x........xcBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCCcv........v
+x|.......xcBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCCcv.......|v
 x$$......xcBBBBBBBBBBBBBBBBBccCCCCCCCCCCCCCCCCCcv......$$v
 xxxxxxxxxxccccccccccccccccccccccccccccccccccccccvvvvvvvvvv
 ENDMAP
@@ -1476,13 +1485,13 @@ vvvvvxxxxcccccccccccccccccccccccccccx..2x...vv
        vcBBBBBBBBBBBBBBBBBBBBBBBBBBcx...x...xv
     vvvvcBBBBBBBBBBBBBBBBBBBBBBBBBBcx'..x...xv
     vxxxccBBBBBBBBBBBBBBBBBBBBBBBBBcx...x...xv
-vvvvvx...cBBBBBBBBBBBBBBBBBBBBBBBBBcx...x...xv
+vvvvvx||.cBBBBBBBBBBBBBBBBBBBBBBBBBcx...x...xv
 vxxxxv...xcccBBBcccccBBBccccccccccccx..'x...xv
 vx......'...'...''''cc..cw.....'...'...'''..xv
 vv''...?.'.'.'.'....wc..cw....'.'.'.'.?...''vv
 vx..'''...'...'.....wc..cc''''...'...'......xv
 vx...v'..xccccccccccccCCCcccccCCCcccx...xxxxxv
-vx...x...xcCCCCCCCCCCCCCCCCCCCCCCCCCc...xvvvvv
+vx...x...xcCCCCCCCCCCCCCCCCCCCCCCCCCc.||xvvvvv
 vx...x...xcCCCCCCCCCCCCCCCCCCCCCCCCCccxxxxv
 vx...x..'xcCCCCCCCCCCCCCCCCCCCCCCCCCCcvvvvv
 vx...x...xcCCCCCCCCCCCCCCCCCCCCCCCCCCcv
@@ -1494,11 +1503,11 @@ vx'..x3..xcCCCCCCCCCCCCCCCCCCCCCCCCCcvvvvv
 vx...x...xcccccccccccccccccccccccccccxxxxvvvvv
 vx...v..'xxxxxxxxxxxxxxxxxxxxxxxxxxxx.0.vxxxxv
 vvi.....4?'.''......'??'......''.'6..1.0.$|wvv
-vv$....<.?.........W.........W...6W.0.<.0~.wvv
+vv$....<.?.........W.........W...6W.0.<.0~]wvv
 vvi...5..?..vvv'??'......'??'.....6''1.0.$|wvv
 vxxxxv..'vxxxxxxxxxxxxxxxxxxxxxxxxxxv'0.vxxxxv
 vvvvvx.'.xvvvvvvvvvvvvvvvvvvvvvvvvvvx$~$xvvvvv
-    vx.'.xv                        vx|.|xv
+    vx.'.xv                        vx|}|xv
     vxi$ixv                        vxwwwxv
     vxvvvxv                        vxvvvxv
     vvvvvvv                        vvvvvvv
@@ -1639,30 +1648,30 @@ MAP
                v                v
 vvvvvvvvvvvvvvvv                vvvvvvvvvvvvvvvv
 vxxxxxxxxxxxxxxc                cxxxxxxxxxxxvvvv
-vxxxi...x.'?'.xc                cx.?''.x..$ vvvv
+vxxxi...x.'?'.xc                cx<?''.x..$ vvvv
 vxxxi.y.x......c                c....5.x.z.$vvvv
 vxxi.yy.+...3..+                +...3..@.zz. xvv
 vxxi....+..2.1.+                +..1.2.@.....xxv
 vxi.....x......c                c......x......xv
 vxi....'x.''?.xc                cx.'?'.x'.....xv
-vx....2xcccccccc                ccccccccx.....vv
-vx....'x                                x'....xv
+vx....2xcccccccc                ccccccccx....$vv
 vx....'x                                x'...$xv
-vx....1x                                x.6..$xv
+vx....'x                                x'... xv
+vx....1x                                x.6..}xv
 vxx~...x                                x0.0~xxv
 vxA....x                                x00.. xv
 vx<....x                                x00.. xv
 vxx~...x                                x0.0~xxv
-vx....1x                                x.6..$xv
+vx....1x                                x.6..]xv
+vx....'x                                x'... xv
 vx....'x                                x'...$xv
-vx....'x                                x'....xv
-vx....2xcccccccc                ccccccccx.....vv
+vx....2xcccccccc                ccccccccx....$vv
 vxi....'x.'?'.xc                cx.?''.x'.....xv
 vxi.....x......c                c......x......xv
 vxxi....+..2.1.+                +..1.2.&.....xxv
 vxxi.zz.+...3..+                +...3..&.yy. xvv
 vxxxi.z.x......c                c....5.x.y.$vvvv
-vxxxi...x.''?.xc                cx.'?'.x..$ vvvv
+vxxxi...x.''?.xc                cx<'?'.x..$ vvvv
 vxxxxxxxxxxxxxxc                cxxxxxxxxxxxvvvv
 vvvvvvvvvvvvvvvv                vvvvvvvvvvvvvvvv
                v                v
@@ -1697,9 +1706,9 @@ vxx...xc                                cx....xv
 vxi...xxxx+++xxc                cccccccccx....xv
 vxi...xxx.....xc                cvxxxxxxxv...0xv
 vxx......1....xc                cx~$ $y...y..0xv
-vxx.....z.2.z.xc                cx$ $$.y.y..0.xv
-vxx.?.........xc                cx $ ...y..6..xv
-vxi'.'....z.1.xc                cx$$......0..6vv
+vxx.....z.2.z.xc                cx$}$$.y.y..0.xv
+vxx.?...... ..xc                cx $ ...y..6..xv
+vxi'.'....z.1.xc                cx$$. ....0..6vv
 vx'ixxx'.1...3xc                cx~ ' '.00..6vxv
 vxxxxxxxxxxxxxxc                cvxxxxxxxxxxvxvv
 vvvvvvvvvvvvvvvv                vvvvvvvvvvvvvvvv
@@ -1719,22 +1728,22 @@ vvxxxxxxxxvxx.xc                cx<xxvxxxxvvvvvv
 vvx~.xx.?xxx.2xc                cx..xxx?.vxxxxvv
 vxx..x...xx.1.xc                cx235xx...x.$vxv
 vx'..++..+.?.'xc                cx.?'.+..++.~ xv
-vx....xx.+'.?3xc                cx.'?.+.xx...$xv
+vx....xx.+'.?3xc                cx.'?.+.xx... xv
 vx.....xxx....xc                cx....xxx~...$xv
-vx..y..cxxx+++xc                cx+++xxxc..z..xv
+vx..y..cxxx+++xc                cx+++xxxc..z.$xv
 vx..y.vc                                cv.z..xv
-vx2..1xc                                cx...0xv
+vx2..1xc                                cx}..0xv
 vx...xxc                                cxx.60xv
 vxA..iic                                c ++.~xv
 vx~.x.ic                                c $x06xv
 vx~.x.ic                                c $x06xv
 vx<..iic                                c ++.~xv
 vx...xxc                                cxx.60xv
-vx1..2xc                                cx...0xv
+vx1..2xc                                cx]..0xv
 vx..z.vc                                cv.y..xv
-vx..z..cxxx+++xc                cx+++xxxc..y..xv
+vx..z..cxxx+++xc                cx+++xxxc..y.$xv
 vx.....xxx....xc                cx....xxx~...$xv
-vx'...xx.+.?'.xc                cx3?.'+.xx...$xv
+vx'...xx.+.?'.xc                cx3?.'+.xx... xv
 vxx..++..+.'?.xc                cx'.?.+..++.~ xv
 vvx~.x...xx123xc                cx.2.xx...x.$vxv
 vvxxxxx.?xxx..xc                cx5.xxx?.vxxxxvv
@@ -1753,7 +1762,7 @@ MAP
         xxxxx''''''xxxxx
         xxxxx''??''xxxxx
         ...W''????''W $.
-        ....W'?x??'W$...
+        ....W'?x??'W$ ..
         .....'????'.....
         ..z..''??''.....
         .zzz.'????'.....
@@ -1776,7 +1785,7 @@ x''''''''''''''?.''''''''''''''x
         .....'????'.zzz.
         .....''??''..z..
         .....'????'.....
-        ...$W'??x?'W....
+        .. $W'??x?'W....
         .$ W''????''W...
         xxxxx''??''xxxxx
         xxxxx''''''xxxxx
@@ -1799,8 +1808,8 @@ MAP
 .'?..?'x?'...?'.'?.1..zz.'?..?'.
 W.?..?x'.....'?'?.2.zzz..2?..?.W
 ...??.......3.'?'$.zz......??...
-..'??........$'?' ...4.....??'..
-..'??.....4... '?'$........??'..
+..'??........$'?'  ..4.....??'..
+..'??.....4..  '?'$........??'..
 ...??......zz.$'?'.3.......??...
 W.?..?2..zzz.2.?'?'.....'x?..?.W
 .'?..?'.zz..1.?'.'?...'?x'?..?'.
@@ -1832,12 +1841,12 @@ MAP
         .?.......?'...'?
 .........?3......?'.....?.......
 .....?'.z.?....1?'4.......z.z...
-xW.??..z...??...?'i.'.3?......Wx
+xW.??..z...??.. ?'i.'.3?......Wx
 x.?....zz....?$' ?2$.??.???..?.x
 '?'...1.....''?''????'''''?????'
 '?????'''''????''?''.....1...'?'
 x.?..???.??.$2? '$?....zz...'?.x
-xW......?3.'.i'?...??...z..??.Wx
+xW......?3.'.i'? ..??...z..??.Wx
 ...z.z.......4'?1....?.z.'?.....
 .......?.....'?......3?.........
         ?'...'?.......?.

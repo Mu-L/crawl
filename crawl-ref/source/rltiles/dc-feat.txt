@@ -880,6 +880,9 @@ transporter_landing_site DNGN_TRANSPORTER_LANDING
 mould_patch0 DNGN_MOULD_PATCH
 mould_patch1
 
+purified_mutation_catalyst DNGN_PURIFIED_MUTATION_CATALYST
+empty_mutation_catalyst DNGN_EMPTY_MUTATION_CATALYST
+
 #### Automatic animation ends here.
 ## Miscellaneous entries that get drawn on the background.
 ## Flavour is fixed again.

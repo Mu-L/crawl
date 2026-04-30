@@ -3106,6 +3106,8 @@ static string _feat_action_desc(const vector<command_type>& actions,
                 // XX disable for portals without item? The command still works.
                 return string("(>)enter");
             }
+            else if (cmd == CMD_GO_DOWNSTAIRS && feat == DNGN_PURIFIED_MUTATION_CATALYST)
+                return string("(>)imbibe");
             else if (cmd == CMD_GO_UPSTAIRS && feat_is_gate(feat))
                 return string("(<)exit");
             else
@@ -3301,6 +3303,33 @@ void get_feature_desc(const coord_def &pos, describe_info &inf, bool include_ext
                 "with the <w>%s</w> key.",
                 desc_the.c_str(),
                 command_to_string(CMD_GO_DOWNSTAIRS).c_str());
+    }
+    else if (feat == DNGN_PURIFIED_MUTATION_CATALYST)
+    {
+        if (you.religion == GOD_ZIN)
+        {
+            long_desc += make_stringf(
+            "\nYour adherence to the laws of Zin forbids you from using "
+              "such a device.");
+        }
+        else if (you.form == transformation::death)
+        {
+            long_desc += make_stringf(
+            "\nYou must first return to come back to life before you may mutate.");
+        }
+        else if (you.is_lifeless_undead()
+             && you.get_mutation_level(MUT_MUTATION_RESISTANCE) != 3)
+        {
+            long_desc += make_stringf(
+            "\nThis is completely useless to you, as you cannot mutate.");
+        }
+        else
+        {
+            long_desc += make_stringf(
+                      "\nWhile standing here, you can crack open %s with "
+                      "the <w>%s</w> key.", desc_the.c_str(),
+                       command_to_string(CMD_GO_DOWNSTAIRS).c_str());
+        }
     }
     else if (feat == DNGN_SPIKE_LAUNCHER)
     {
