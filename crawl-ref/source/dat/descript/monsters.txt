@@ -1569,7 +1569,8 @@ spores.
 %%%%
 fungus
 
-A lumpy grey fungus, growing well in the dank underground dungeon.
+A lumpy {{ if you.branch() == "Gulch" then return "mauve"; else return "grey";
+end }} fungus, growing well in the dank underground dungeon.
 %%%%
 gargoyle
 

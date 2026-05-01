@@ -233,7 +233,7 @@ cause temporary corrosion.
 %%%%
 A metal wall
 
-A wall of bluish-grey metal. As every dungeon electrician knows, it will ground
+A wall of shiny grey metal. As every dungeon electrician knows, it will ground
 even magical bolts of lightning.
 %%%%
 A rock wall
