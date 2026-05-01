@@ -5930,7 +5930,8 @@ bool ench_flavour_affects_monster(actor *agent, beam_type flavour,
 
     case BEAM_PORKALATOR:
         rc = (mon->holiness() & MH_DEMONIC && mon->type != MONS_HELL_HOG)
-              || (mon->holiness() & MH_NATURAL && mon->type != MONS_HOG)
+              || (mon->holiness() & MH_NATURAL && mon->type != MONS_HOG
+                                               && mon->type != MONS_SEWAGE_SOVEREIGN)
               || (mon->holiness() & MH_HOLY && mon->type != MONS_HOLY_SWINE);
         break;
 
