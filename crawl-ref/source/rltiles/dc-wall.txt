@@ -734,9 +734,8 @@ slime7
 %weight 3
 slime_stone0 STONE_WALL_SLIME
 slime_stone1
-%weight 10
+%weight 20
 slime_stone2
-slime_stone3
 
 slimy_transparent_stone0 SLIMY_TRANSPARENT_STONE
 slimy_transparent_stone1
