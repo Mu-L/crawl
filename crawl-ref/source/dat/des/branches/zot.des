@@ -3900,7 +3900,7 @@ KMONS:  O = diamond obelisk
 KMONS:  S = lightning spire
 ITEM:   storm talisman, randbook disc:air spells:chain_lightning
 : local e = "ego:electrocution good_item pre_id no_pickup"
-: item("quickblade " .. e .. " w:5 / double sword " .. e .. " w:5 / " ..
+: item("quick blade " .. e .. " w:5 / double sword " .. e .. " w:5 / " ..
 :      "executioner's axe " .. e .. " w:5 / eveningstar " .. e .. " w:5 / " ..
 :      "bardiche " .. e .. " w:5 / lajatang " .. e .. " w:5 / " ..
 :      "rapier " .. e .. " / scimitar " .. e .. " / dire flail " .. " / " ..

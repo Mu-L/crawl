@@ -487,7 +487,7 @@ NSUBST:  10 = 2:3 / 1:2, % = 1:| / 1:* / 1:e / * = *%%
 SUBST:   W = ., X = x
 : end
 ITEM:    throwing net q:1 no_pickup / rapier ego:venom no_pickup w:12 / \
-         scimitar ego:venom no_pickup w:8 / \ any hex wand charges:8 no_pickup / \
+         scimitar ego:venom no_pickup w:8 / any hex wand charges:8 no_pickup / \
          potion of ambrosia q:1 w:3 pre_id / potion of curing w:3 pre_id / \
          fen folio w:3 / my sojourn through swampland w:3 / \
          dart ego:curare no_pickup w:3 / scarab talisman
@@ -528,7 +528,7 @@ DEPTH:   D:3-7, Depths
 : if you.in_branch("D") then
 MONS:    bombardier beetle
 MONS:    orc wizard w:20 / orc wizard band w:15 / orc band / orc w:5
-KITEM:   any weapon ego:flaming w:18 / parchment disc:fire w:18 / \
+ITEM:    any weapon ego:flaming w:18 / parchment disc:fire w:18 / \
          wand of flame w:18 / scarab talisman w:18 / \
          ring of protection from fire w:18 / manual of fire magic w:15 / \
          fire dragon scales w:15 / pair of gloves ego:fire w:5 / \

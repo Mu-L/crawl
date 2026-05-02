@@ -133,7 +133,7 @@ function gulch_loot(e, item_nsubst, potion_count)
   local schools1 = util.random_from({"alchemy", "hexes", "forgecraft"})
   local schools2 = util.random_from({"fire", "ice", "air", "earth"})
   local orbprop = util.random_from({"Alch", "Forge", "rPois", "rCorr"})
-  local weapon_string = "d = "
+  local weapon_string = ""
   for _, wt in ipairs(weapon) do
     weapon_string = weapon_string .. " / " .. wt .. " ego:venom pre_id good_item"
   end
@@ -157,7 +157,7 @@ function gulch_loot(e, item_nsubst, potion_count)
                "hand cannon good_item w:20")
   e.kitem("e = staff of alchemy randart artprops:Hexes w:5 / " ..
           "staff of alchemy randart artprops:Forge w:5 / " ..
-          "randbook disc:" .. schools1 .. " disc2:" .. schools2 ..
+          "randbook disc:" .. schools1 .. " disc2:" .. schools2 .. " " ..
           "splevels:33 numspells:5 / " ..
           "orb ego:attunement randart artprops:" .. orbprop .. " w:3 / " ..
           "orb ego:stardust randart artprops:" .. orbprop .. " w:3 / " ..
@@ -242,8 +242,8 @@ function gulch_crossways_sections(e)
   e.kmons("5 = fungal shambler / formless jellyfish w:6 / " ..
               "telencephalon w:4 / torpor snail w:1")
   e.subst("~ = ..Wwx")
-  gulch_generic_subvaults(e, {"y", "z"}, "x.", true)
   gulch_boss_theme_sets(e, false)
+  gulch_generic_subvaults(e, {"y", "z"}, "x.", true)
   gulch_loot(e, "|", 4)
 end
 
@@ -256,8 +256,8 @@ function gulch_network(e)
   e.kmons("4 = great orb of eyes / crawling flesh cage / telencephalon w:2")
   e.kmons("5 = fungal shambler / formless jellyfish w:6 / " ..
               "telencephalon w:4 / torpor snail w:1")
-  gulch_generic_subvaults(e, {"y", "z"}, "xxW..", true)
   gulch_boss_theme_sets(e, false)
+  gulch_generic_subvaults(e, {"y", "z"}, "xxW..", true)
   gulch_loot(e, "|", 4)
 end
 
@@ -270,7 +270,6 @@ function gulch_chamber_river(e, is_subvault)
   e.kmons("4 = great orb of eyes / crawling flesh cage / telencephalon w:2")
   e.kmons("5 = fungal shambler / formless jellyfish w:6 / " ..
               "telencephalon w:4 / torpor snail w:1")
-  gulch_generic_subvaults(e, {"y", "z", "Y", "Z"}, "xxW..", true)
   if crawl.one_chance_in(3) then
     e.kmons("? = fungus")
     e.subst("? : ;WW?")
@@ -281,6 +280,7 @@ function gulch_chamber_river(e, is_subvault)
   if is_subvault then
     gulch_loot(e, "|", 3)
   end
+  gulch_generic_subvaults(e, {"y", "z", "Y", "Z"}, "xxW..", true)
 end
 
 function gulch_winding_coils(e)

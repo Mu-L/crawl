@@ -662,7 +662,7 @@ local function ziggurat_create_loot_at(c)
   local xpw = math.max(10, 190 - you.zigs_completed() * 30)
   local mtw = math.min(470, 290 + you.zigs_completed() * 30)
   local super_loot = dgn.item_spec("| no_pickup w:7000 /" ..
-                    "potion of experience no_pickup q:1 w: " .. xpw .. " / " ..
+                    "potion of experience no_pickup q:1 w:" .. xpw .. " / " ..
                     "potion of mutation no_pickup w:" .. mtw .. " / " ..
                     "potion of cancellation q:5 no_pickup / " ..
                     "potion of heal wounds q:5 no_pickup / " ..

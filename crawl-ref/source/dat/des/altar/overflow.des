@@ -1040,7 +1040,7 @@ ENDMAP
 NAME:   nicolae_elyvilon_little_fluffy_clouds
 TAGS:   transparent decor
 WEIGHT: 7
-KITEM:  _ = none w:100 / orb / orb ego:light w:1
+KITEM:  _ = nothing w:100 / orb / orb ego:light w:1
 MARKER: _ = lua:fog_machine{cloud_type = "white fluffiness", pow_min = 10, \
              pow_max = 15, delay_min = 20, delay_max = 30, size = 1, \
              walk_dist = 3, spread_rate = 0}

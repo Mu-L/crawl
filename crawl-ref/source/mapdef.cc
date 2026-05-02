@@ -5890,8 +5890,8 @@ item_list::item_spec_slot item_list::parse_item_spec(string spec, bool ignore_ex
         item_spec parsed_spec;
         if (!parse_single_spec(parsed_spec, specifier))
         {
-            dprf(DIAG_DNGN, "Failed to parse: %s", specifier.c_str());
-            continue;
+            error = make_stringf("Error parsing '%s':\n%s", spec.c_str(), error.c_str());
+            break;
         }
         if (ignore_excluded
             || parsed_spec.props.exists(NO_EXCLUDE_KEY)

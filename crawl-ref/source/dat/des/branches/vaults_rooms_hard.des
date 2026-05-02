@@ -38,8 +38,8 @@ function init_protected_by_tso(e)
   e.tags('vaults_hard')
   e.kmons('A = angel')
   e.kmons('1 = generate_awake daeva')
-  e.kmons('2 = vault warden ; great sword ' .. h .. ' | battleaxe .. ' .. h ..
-                             'glaive ' .. h .. ' | great mace ' .. h .. ' . ' ..
+  e.kmons('2 = vault warden ; great sword ' .. h .. ' | battleaxe ' .. h ..
+                             ' | glaive ' .. h .. ' | great mace ' .. h ..
                              ' . chain mail | plate armour')
   e.kmons('3 = generate_awake vault guard / \
                generate_awake ironbound mechanist w:2')
@@ -2758,7 +2758,7 @@ NAME:    nicolae_vaults_lava_storage_facility
 KMONS:   1 = yaktaur captain ; arbalest ego:flaming pre_id w:15 | \
              hand cannon ego:flaming pre_id w:3
 : local f = "great sword ego:flaming pre_id | long sword ego:flaming pre_id |"..
-: " battle axe ego:flaming pre_id | war axe ego:flaming pre_id | great mace " ..
+: " battleaxe ego:flaming pre_id | war axe ego:flaming pre_id | great mace " ..
 : "ego:flaming pre_id | dire flail ego:flaming pre_id | bardiche ego:flaming "..
 : "pre_id | glaive ego:flaming pre_id . ring mail ego:fire_resistance pre_id|"..
 : "chain mail ego:fire_resistance pre_id | " ..

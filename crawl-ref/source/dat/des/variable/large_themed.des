@@ -2822,7 +2822,7 @@ TILE:    v = dngn_metal_wall_red
 FTILE:   ."~01234567Rs>V%$d*|-+abcdefABCDEFTUVn = floor_zot_diamonds
 : end
 KITEM:   & = demon whip / demon blade / demon trident / \
-             plate armor ego:fire_resistance pre_id / \
+             plate armour ego:fire_resistance pre_id / \
              plate armour ego:command pre_id w:5 / \
              fire dragon scales good_item / fire dragon scales randart / \
              sanguine talisman w:2 / dragon-coil talisman w:3
@@ -3514,8 +3514,9 @@ ITEM:    any scroll, parchment
 # Books with notable spells at level 6 or higher, across each school.
 ITEM:    book of spontaneous combustion / book of ice / book of spectacle / \
          book of power / book of chaos / book of the warp / book of death / \
-         book of siegecraft / necronomicon / grand grimoire / book of annihilations
-ITEM:    robe randart / orb ego:guile randart / orb ego:channeling randart / \
+         compendium of siegecraft / necronomicon / grand grimoire / \
+         book of annihilations
+ITEM:    robe randart / orb ego:guile randart / orb ego:energy randart / \
          orb ego:stardust randart / orb ego:attunement randart / \
          any magical staff randart w:15 / \
          ring of wizardry randart / manual of spellcasting w:5

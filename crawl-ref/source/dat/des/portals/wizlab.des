@@ -785,7 +785,7 @@ MARKER:     ! = lua:fog_machine { \
 # player complete the rest of the map.
 ITEM:       potion of haste / potion of resistance w:5 / any potion w:20 \
             / scroll of silence w:5 / scroll of fog w:5 / any scroll w:20
-ITEM:       scarf ego:repulsion / book of vapours / condenser vane \
+ITEM:       scarf ego:repulsion / trismegistus codex / condenser vane \
             / staff of air
 # Main loot, including some thematic items that are good even if you don't care
 # about flight.
@@ -1290,7 +1290,7 @@ KMONS:      & = col:mutagenic primal ox-ox-weird mutant beast perm_ench:regen \
 ITEM:       potion of mutation q:1 pre_id
 ITEM:       randbook disc:alchemy disc2:necromancy owner:Cigotuvi
 ITEM:       protean talisman randart / maw talisman randart / \
-            serpent talisman randart / statue talisman w:8 / \
+            serpent talisman randart / granite talisman w:8 / \
             dragon-coil talisman / storm talisman w:8 / \
             talisman of death w:2
 ITEM:       staff of necromancy pre_id, scroll of poison pre_id
@@ -2164,9 +2164,9 @@ MONS:       patrolling electric golem
 KMONS:      P = lightning spire
 KMONS:      M = ironbound mechanist
 KMONS:      S = stack of scrap
-ITEM:       scarf ego:harm randart w:25 / boots ego:rampaging w:25 /\
-            boots ego:rampaging randart /\
-            any armour good_item ego:ponderous randart /\
+ITEM:       scarf ego:harm randart w:25 / pair of boots ego:rampaging w:25 /\
+            pair of boots ego:rampaging randart /\
+            any body armour good_item ego:ponderousness randart /\
             plate armour good_item ego:ponderousness / any weapon ego:chaos /\
             maxwell's patent armour w:2 / maxwell's thermic engine w:2
 ITEM:       any armour good_item w:20 / any weapon good_item w:20 /\

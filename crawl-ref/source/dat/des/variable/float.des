@@ -4603,9 +4603,9 @@ NAME:   minmay_shoctagon
 DEPTH:  D:12-, Elf, Depths
 ORIENT: float
 ITEM:   book of air / book of lightning / book of storms / \
-        manual of air magic / staff of air pre_id / lightning rod w:20 \
+        manual of air magic / staff of air pre_id / lightning rod w:20 / \
         storm dragon scales w:5 / storm talisman w:5
-KITEM:  2 = arc blade / quick blade ego:electrocution randart pre_id \
+KITEM:  2 = arc blade / quick blade ego:electrocution randart pre_id / \
         glaive of the guard / \
         demon trident ego:electrocution randart pre_id / storm bow
 : if you.in_branch("D") then
@@ -7490,7 +7490,7 @@ MONS:    rakshasa, vampire knight, shadow dragon
 SUBST:   ' = 12, " = 56
 : end
 KITEM:   & = shadow dragon scales randart / manual of stealth / \
-             boots ego:stealth good_item pre_id / \
+             pair of boots ego:stealth good_item pre_id / \
              cloak ego:stealth good_item pre_id / \
              scroll of fog q:3 pre_id
 KFEAT:   B = cache_of_baked_goods

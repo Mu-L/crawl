@@ -707,7 +707,7 @@ KITEM: k = protean talisman / serpent talisman /\
            scale mail plus:4 pre_id /\
            plate armour plus:3 pre_id
 KITEM: l = any randbook slevels:14, /\
-       ring of protection plus:3 pre_id \
+       ring of protection plus:3 pre_id /\
        ring of evasion plus:3 pre_id /\
        ring of strength plus:3 pre_id /\
        ring of intelligence plus:3 pre_id /\

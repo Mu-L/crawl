@@ -245,15 +245,15 @@ function vault_species_skeletons(e, category)
   local s3 = {"barachi", "demigod", "dwarf", "demonspawn", "felid", "oni"}
   local output = "human skeleton"
   if category == "early" or category == "dungeon" or category == "all" then
-    output = output .. " / " .. table.concat(s1, " skeleton / ")
+    output = output .. " / " .. table.concat(s1, " skeleton / ") .. " skeleton"
   end
   if category == "late" or category == "dungeon" or category == "all" then
-    output = output .. " / " .. table.concat(s2, " skeleton / ")
+    output = output .. " / " .. table.concat(s2, " skeleton / ") .. " skeleton"
   end
   if category == "all" then
-    output = output .. " / " .. table.concat(s3, " skeleton / ")
+    output = output .. " / " .. table.concat(s3, " skeleton / ") .. " skeleton"
   end
-  return output  .. " skeleton"
+  return output
 end
 
 -- Three sets of reusable vault feature redefines scattered across the game,
