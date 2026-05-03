@@ -414,60 +414,20 @@ static void _get_depths_wall_tiles_by_depth(int depth,
     t.emplace_back(TILE_WALL_BRICK_DARK_6_TORCH, torch_weight);
 }
 
-static int _find_variants(tileidx_t idx, int variant, vector<int> &out)
-{
-    const int count = tile_dngn_count(idx);
-    out.reserve(count);
-    if (count == 1)
-    {
-        out.push_back(1);
-        return 1;
-    }
-
-    int total = 0;
-    int curr_prob = 0;
-    for (int i = 0; i < count; ++i)
-    {
-        int last_prob = curr_prob;
-        curr_prob = tile_dngn_probs(idx + i);
-        if (tile_dngn_dominoes(idx + i) == variant)
-        {
-            int weight = curr_prob - last_prob;
-            total += weight;
-            out.push_back(weight);
-        }
-        else
-            out.push_back(0);
-    }
-    if (!total)
-    {
-        out.clear();
-        out.push_back(tile_dngn_probs(idx));
-        for (int i = 1; i < count; ++i)
-            out.push_back(tile_dngn_probs(idx + i) - tile_dngn_probs(idx + i - 1));
-        return tile_dngn_probs(idx + count - 1);
-    }
-    return total;
-}
-
-tileidx_t pick_dngn_tile(tileidx_t idx, int value, int domino)
+tileidx_t pick_dngn_tile(tileidx_t idx, int value)
 {
     ASSERT_LESS(idx, TILE_DNGN_MAX);
-    static vector<int> weights;
-    weights.clear();
-
-    int total = _find_variants(idx, domino, weights);
-    if (weights.size() == 1)
+    const unsigned int count = tile_dngn_count(idx);
+    if (count == 1)
         return idx;
-    int rand = value % total;
-
-    for (size_t i = 0; i < weights.size(); ++i)
+    const int total_weight = tile_dngn_probs(idx + count - 1);
+    int rand = value % total_weight;
+    for (unsigned int i = 0; i < count; ++i)
     {
-        rand -= weights[i];
-        if (rand < 0)
+        int weight = tile_dngn_probs(idx + i);
+        if (rand < weight)
             return idx + i;
     }
-
     return idx;
 }
 
@@ -489,7 +449,7 @@ static tileidx_t _pick_dngn_tile_multi(
             // XXX: this should be for any animated tile
             if (is_torch_tile(candidate.first))
                 return candidate.first;
-            return pick_dngn_tile(candidate.first, rand2, -1);
+            return pick_dngn_tile(candidate.first, rand2);
         }
         rand1 -= candidate.second;
     }
@@ -565,10 +525,11 @@ void tile_init_flavour(const coord_def &gc, const int domino)
     if (!tile_env.flv(gc).floor)
     {
         tileidx_t floor_base = tile_env.default_flavour.floor;
+        floor_base = tile_dngn_apply_domino(floor_base, domino);
         int colour = env.grid_colours(gc);
         if (colour)
             floor_base = tile_dngn_coloured(floor_base, colour);
-        tile_env.flv(gc).floor = pick_dngn_tile(floor_base, rand1, domino);
+        tile_env.flv(gc).floor = pick_dngn_tile(floor_base, rand1);
     }
     else if (tile_env.flv(gc).floor != TILE_HALO_GRASS
              && tile_env.flv(gc).floor != TILE_HALO_GRASS2

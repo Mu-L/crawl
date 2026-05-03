@@ -39,6 +39,12 @@ protected:
         bool operator<(const variation& other) const noexcept;
     };
 
+    void write_variations(FILE* fp,
+                          const char* name,
+                          const char* func_name,
+                          const char* lcname,
+                          const map<variation, int>& variations);
+
     string m_name;
 
     tile_page m_page;
@@ -62,13 +68,14 @@ protected:
     vector<int> m_ctg_counts;
     tile m_compose;
     tile* m_texture;
+    vector<variation> m_pending_dominoes;
+    map<variation, int> m_dominoes;
     vector<variation> m_pending_colour_variations;
     map<variation, int> m_colour_variations;
     vector<variation> m_pending_enchant_variations;
     map<variation, int> m_enchant_variations;
     int m_weight;
     double m_alpha;
-    int m_domino;
 
     typedef pair<tile_colour, tile_colour> palette_entry;
     typedef vector<palette_entry> palette_list;

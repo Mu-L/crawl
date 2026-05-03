@@ -965,29 +965,26 @@ gauntlet2
 gauntlet3
 
 %weight 10
-%domino 0
 crypt_domino_1a FLOOR_CRYPT
 %weight 2
 crypt_domino_1b
+%domino FLOOR_CRYPT 1
+crypt_domino_2a FLOOR_CRYPT_B
+%domino FLOOR_CRYPT 2
+crypt_domino_3a FLOOR_CRYPT_C
+%domino FLOOR_CRYPT 3
 %weight 10
-%domino 1
-crypt_domino_2a
-%domino 2
-crypt_domino_3a
-%domino 3
-crypt_domino_4a
+crypt_domino_4a FLOOR_CRYPT_D
 %weight 2
 crypt_domino_4b
-%weight 10
-%domino 4
-crypt_domino_5a
-%domino 5
-crypt_domino_6a
-%domino 6
-crypt_domino_7a
-%domino 7
-crypt_domino_8a
-%domino 0
+%domino FLOOR_CRYPT 4
+crypt_domino_5a FLOOR_CRYPT_E
+%domino FLOOR_CRYPT 5
+crypt_domino_6a FLOOR_CRYPT_F
+%domino FLOOR_CRYPT 6
+crypt_domino_7a FLOOR_CRYPT_G
+%domino FLOOR_CRYPT 7
+crypt_domino_8a FLOOR_CRYPT_H
 
 zot_diamonds0 FLOOR_ZOT_DIAMONDS
 zot_diamonds1
