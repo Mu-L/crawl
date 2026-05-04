@@ -6729,6 +6729,7 @@ void player::preview_stats_with_specific_item(int scale, const item_def& new_ite
 
     // Now actually equip the item.
     you.equipment.add(item, slot);
+    you.equipment.meld_equipment(get_form()->blocked_slots, true);
     you.equipment.update();
 
     // Now, simply calculate AC/EV/SH without temporary boosts.
